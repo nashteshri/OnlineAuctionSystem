@@ -1,0 +1,61 @@
+  /* Container for the search bar */
+  .search-bar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    /* Adjust as needed */
+    margin: 0 auto;
+    /* Center horizontally */
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    overflow: hidden;
+    /* Ensures a clean, rounded look */
+  }
+
+ 
+  .ekart-search-result-for{
+    margin: 20px auto;
+    padding: 10px 140px;
+}
+
+  .btn-search-disabled {
+    padding: 12px 30px;
+    background-color: #aaa;
+    margin: -1px;
+    color: #999;
+    border: #aaa 1px solid;
+    cursor: not-allowed;
+  }
+
+  /* Search input field */
+  .search-bar-input {
+    flex: 1;
+    /* Makes the input take remaining space */
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 25px 0 0 25px;
+    /* Rounds left side only */
+  }
+
+  /* Search button */
+  .search-bar-button {
+    background-color: #f8b400;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    /* Rounds right side only */
+    transition: background-color 0.3s ease;
+  }
+
+  /* Hovering effect for the search button */
+  .search-bar-button:hover {
+    background-color: #ffc107;
+  }

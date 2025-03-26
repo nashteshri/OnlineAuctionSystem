@@ -1,0 +1,6 @@
+<br>
+<div class="search-bar-container">
+  <input class="search-bar-input" placeholder="Search for items..." [(ngModel)]="searchText"/>
+  <button class="search-bar-button">Search</button>
+</div>
+<div class="ekart-search-result-for" *ngIf="searchText !=''"><p><strong>Search result for:</strong> {{ searchText }}</p></div>
