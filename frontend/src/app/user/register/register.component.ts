@@ -8,11 +8,11 @@ import { AuthService } from '../auth.service';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  registerForm!: FormGroup;
+  registerForm!: FormGroup; //form group:Represents the entire form
   countries: string[] = ['India', 'USA', 'UK', 'Canada', 'Australia']; // Country options
 
   constructor(private fb: FormBuilder,private authService:AuthService) { }
-
+  //form validation
   ngOnInit() {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
@@ -25,22 +25,19 @@ export class RegisterComponent {
       country: ['', Validators.required]
     });
   }
+  //Api calling
 
-  // onSubmit() {
-  //   if (this.registerForm.valid) {
-  //     console.log('Form Submitted', this.registerForm.value);
-  //   } else {
-  //     console.log('Form is Invalid');
-  //   }
-  // }
+  isloading=false;
   onSubmit(){
     if(this.registerForm.valid){
+      this.isloading=true;
       this.authService.register(this.registerForm.value).subscribe({
         next:(response)=>{
+          this.isloading=false;
           alert('Login Sucessfully');
         },
         error:(err)=>{
-
+          this.isloading=false;
           alert('Invalid form details')
         }
       })

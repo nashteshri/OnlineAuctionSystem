@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
-
+//observable here are used to Represents asynchronous API calls
 @Injectable({
   providedIn: 'root'
 })
@@ -18,8 +18,8 @@ export class AuthService {
   login(credentials: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/login`, credentials);
   }
-
-  loginIn(token:string):void{
+  //saving the token so that token are needed for accessing protected routes
+  loginIn(token:string):void{ 
     localStorage.setItem('token',token);
   }
 
