@@ -68,26 +68,89 @@ button:disabled {
     font-weight: bold;
 }
 
-.social {
+
+/* for password button */
+/* Password Field Styling */
+.password-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-field input {
     width: 100%;
-    margin-bottom: 10px;
     padding: 10px;
-    border: none;
+    padding-right: 40px; /* Space for eye icon */
+    border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Toggle Button Styling */
+.toggle-btn {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
     cursor: pointer;
+    font-size: 18px;
+    color: #555;
 }
 
-.google {
-    background: #db4437;
-    color: white;
+/* Hover effect */
+.toggle-btn:hover {
+    color: #007bff;
 }
 
-.facebook {
-    background: #4267b2;
-    color: white;
-}
+/* socail media */
 
-.apple {
-    background: black;
+.social-login-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .social-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
     color: white;
-}
+    font-weight: bold;
+  }
+  
+  .social-login i {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  
+  /* Google Button */
+  .google {
+    background-color: #db4437;
+  }
+  .google:hover {
+    background-color: #c1351d;
+  }
+  
+  /* Facebook Button */
+  .facebook {
+    background-color: #1877f2;
+  }
+  .facebook:hover {
+    background-color: #155cc0;
+  }
+  
+  /* Apple Button */
+  .apple {
+    background-color: black;
+  }
+  .apple:hover {
+    background-color: #333;
+  }
+  

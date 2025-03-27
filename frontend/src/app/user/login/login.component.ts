@@ -18,11 +18,12 @@ export class LoginComponent {
 
   loginForm!: FormGroup; // Define form variable
   loginError :string='';
+  showPassword = false;
   
   constructor(private fb: FormBuilder,private authService:AuthService) { } // Inject FormBuilder
 
   ngOnInit() {
-    this.loginForm = this.fb.group({
+    this.loginForm = this.fb.group({//use this as we dont need to wrie formcontrol
       email: ['', [Validators.required, Validators.email]], // Email validation
       password: ['', [Validators.required, Validators.minLength(6)]], // Password validation
       rememberMe: [true], // Checkbox
@@ -52,5 +53,22 @@ export class LoginComponent {
   logout(){
     this.authService.logout();
   }
+
+  //alerts for social media
+  loginWithGoogle() {
+    alert("Google Login Clicked!");
+    // Implement Google OAuth Here
+  }
+  
+  loginWithFacebook() {
+    alert("Facebook Login Clicked!");
+    // Implement Facebook OAuth Here
+  }
+  
+  loginWithApple() {
+    alert("Apple Login Clicked!");
+    // Implement Apple OAuth Here
+  }
+  
 }
 

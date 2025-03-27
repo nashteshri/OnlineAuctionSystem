@@ -28,19 +28,36 @@
         <div class="form-group checkbox">
             <input type="checkbox" formControlName="rememberMe"> Remember me
         </div>
+        <a routerLink="/">Forgot Password?</a>
+
 
         <!-- Submit Button -->
         <button type="submit" [disabled]="loginForm.invalid">Proceed</button>
         <div>
-            <a routerLink="/register">Don't have account</a>
+            <a routerLink="/register" style="">Don't have account</a>
         </div>
         <!-- OR Separator -->
         <div class="separator">OR</div>
 
         <!-- Social Login Buttons -->
-        <button type="button" class="social google">Continue with Google</button>
-        <button type="button" class="social facebook">Continue with Facebook</button>
-        <button type="button" class="social apple">Continue with Apple</button>
+        <!-- <button type="button" class="social google"><i class="fab fa-google"></i>    Continue with Google</button>
+        <button type="button" class="social facebook"><i class="fab fa-facebook"></i> Continue with Facebook</button>
+        <button type="button" class="social apple"><i class="fa-brands fa-apple"></i> Continue with Apple</button> -->
+        <div class="social-login-container">
+            <!-- Google Login -->
+            <button class="social-login google" (click)="loginWithGoogle()">
+              <i class="fa-brands fa-google"></i> Continue with Google
+            </button>
+          
+            <!-- Facebook Login -->
+            <button class="social-login facebook" (click)="loginWithFacebook()">
+              <i class="fa-brands fa-facebook"></i> Continue with Facebook
+            </button>
+          
+            <!-- Apple Login -->
+            <button class="social-login apple" (click)="loginWithApple()">
+              <i class="fa-brands fa-apple"></i> Continue with Apple
+            </button>
+        </div>
     </form>
-    
 </div>

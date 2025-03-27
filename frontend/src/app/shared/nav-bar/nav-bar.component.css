@@ -1,13 +1,5 @@
-/* General styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
 
-/* Navbar styles */
 .navbar {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     background-color: #343a40;
     padding: 0.5rem 1rem;
@@ -16,17 +8,8 @@ body {
 
 .navbar-logo {
     font-size: 2.5rem;
-    text-decoration:dotted;
+    text-decoration:none;
     color: #ffffff;
-}
-
-.navbar-toggler {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #fff;
-    cursor: pointer;
-    display: none;
 }
 
 .navbar-menu {
@@ -35,12 +18,12 @@ body {
 }
 
 .navbar-nav {
-    list-style: none;
+    /* list-style: none; */
     display: flex;
     flex-direction:row;
     align-items: center; 
-    padding: 0;
-    margin: 0;
+    /* padding: 0;
+    margin: 0; */
 }
 
 .nav-item {
@@ -55,8 +38,4 @@ body {
 
 .nav-link:hover {
     color: #007bff;
-}
-.center-text{
-    text-align: center;
-    width: 100%;
 }
