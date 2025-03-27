@@ -7,19 +7,22 @@ import { ListAuctionComponent } from './list-auction/list-auction.component';
 import { DetailsAuctionComponent } from './details-auction/details-auction.component';
 import { CreateAuctionComponent } from './create-auction/create-auction.component';
 import { AuctionRoutingRoutingModule } from './auction-routing-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
   //   SearchComponent
   ListAuctionComponent,
   DetailsAuctionComponent,
-  CreateAuctionComponent
+  CreateAuctionComponent,
+  
   
   ],
   imports: [
     CommonModule,
     FormsModule,
-    AuctionRoutingRoutingModule
+    AuctionRoutingRoutingModule,
+    ReactiveFormsModule
     
   ],
   exports:[
