@@ -16,11 +16,10 @@ h2 {
     margin-bottom: 15px;
 }
 
-input,
-select {
+input,select {
     width: 100%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #c70e6d23;
     border-radius: 5px;
 }
 

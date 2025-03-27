@@ -19,12 +19,11 @@ export class AuthServices{
         
         const user = await UserRepositories.findOne({where:{email:loginData.email}});
         if (!user) throw Error("Invalid Password or Email Please check once");
-        console.log(loginData.password, user.password);
         const isValidPassword= await bcrypt.compare(loginData.password, user.password);
         if(!isValidPassword) throw Error("Invalid Password or Email Please check once");
-        const token = jwt.sign({userId:user.id,email:user.email},process.env.JWT_SECRET!);
+        const token = jwt.sign({userId:user.id,email:user.email},process.env.JWT_SECRET!,{expiresIn: '1h'});
         console.log(token);
         
-        return{token,userId:user.id,email:user.email};
+        return{userId:user.id,email:user.email};
     }
 }

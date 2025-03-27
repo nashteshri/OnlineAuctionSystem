@@ -11,13 +11,17 @@ import { SearchComponent } from './auction/search/search.component';
 import { AuctionModule } from './auction/auction.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { BidFormComponent } from './bidding/bid-form/bid-form.component';
+import { BidHistoryComponent } from './bidding/bid-history/bid-history.component';
 
 @NgModule({
   declarations: [
     NavBarComponent,
     AppComponent,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+    BidFormComponent,
+    BidHistoryComponent
   ],
   imports: [
     BrowserModule,
