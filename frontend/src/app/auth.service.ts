@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 //observable here are used to Represents asynchronous API calls
 @Injectable({
@@ -11,8 +12,21 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
+  // register(userData: any): Observable<any> {
+  //   return this.http.post(`${this.apiUrl}/register`, userData);
+  // }
+  private setSession(token: string): void {
+    localStorage.setItem('token', token);
+  }
   register(userData: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, userData);
+    return this.http.post<any>(`${this.apiUrl}/register`, userData).pipe(
+      tap((response) => {
+        if (response.token) {
+          this.setSession(response.token);
+          this.router.navigate(['/dashboard']); // Redirect to dashboard
+        }
+      })
+    );
   }
 
   login(credentials: any): Observable<any> {
