@@ -1,63 +1,68 @@
-<div class="login-container">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <h2>Login to Your Account</h2>
-        <div ><p style="color: red;">{{loginError}}</p></div>
-        <!-- Tabs for Bidder / Company Login -->
-        <div class="tabs">
-            <button type="button" class="tab active">Bidder Login</button>
-            <button type="button" class="tab">Company Login</button>
+<div >
+    <div class="login-container">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <h2>Login to Your Account</h2>
+            <div ><p style="color: red;">{{loginError}}</p></div>
+            <!-- Tabs for Bidder / Company Login -->
+            <div class="tabs">
+                <button type="button" class="tab active">Bidder Login</button>
+                <button type="button" class="tab">Company Login</button>
+            </div>
+    
+            <!-- Email Input -->
+            <div class="form-group">
+                <input type="email" formControlName="email" placeholder="Email or Username">
+                <span *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+                    InValid mail
+                </span>
+            </div>
+    
+            <!-- Password Input -->
+            <div class="form-group">
+                <input type="password" formControlName="password" placeholder="Password">
+                <span *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+                    Password must be at least 6 characters
+                </span>
+            </div>
+    
+            <!-- Remember Me Checkbox -->
+            <div class="form-group checkbox">
+                <input type="checkbox" formControlName="rememberMe"> Remember me
+            </div>
+            <a routerLink="/">Forgot Password?</a>
+    
+    
+            <!-- Submit Button -->
+            <button type="submit" [disabled]="loginForm.invalid">Proceed</button>
+            <div>
+                <a routerLink="/register" style="">Don't have account</a>
+            </div>
+            <!-- OR Separator -->
+            <div class="separator">OR</div>
+    
+            <!-- Social Login Buttons -->
+            <!-- <button type="button" class="social google"><i class="fab fa-google"></i>    Continue with Google</button>
+            <button type="button" class="social facebook"><i class="fab fa-facebook"></i> Continue with Facebook</button>
+            <button type="button" class="social apple"><i class="fa-brands fa-apple"></i> Continue with Apple</button> -->
+            <div class="social-login-container">
+                <!-- Google Login -->
+                <button class="social-login google" (click)="loginWithGoogle()">
+                  <i class="fa-brands fa-google"></i> Continue with Google
+                </button>
+              
+                <!-- Facebook Login -->
+                <button class="social-login facebook" (click)="loginWithFacebook()">
+                  <i class="fa-brands fa-facebook"></i> Continue with Facebook
+                </button>
+              
+                <!-- Apple Login -->
+                <button class="social-login apple" (click)="loginWithApple()">
+                  <i class="fa-brands fa-apple"></i> Continue with Apple
+                </button>
+            </div>
+        </form>
+        <div *ngIf="isloading" class="spinner-center">
+            <p-progress-spinner ariaLabel="loading" />
         </div>
-
-        <!-- Email Input -->
-        <div class="form-group">
-            <input type="email" formControlName="email" placeholder="Email or Username">
-            <span *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
-                InValid mail
-            </span>
-        </div>
-
-        <!-- Password Input -->
-        <div class="form-group">
-            <input type="password" formControlName="password" placeholder="Password">
-            <span *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
-                Password must be at least 6 characters
-            </span>
-        </div>
-
-        <!-- Remember Me Checkbox -->
-        <div class="form-group checkbox">
-            <input type="checkbox" formControlName="rememberMe"> Remember me
-        </div>
-        <a routerLink="/">Forgot Password?</a>
-
-
-        <!-- Submit Button -->
-        <button type="submit" [disabled]="loginForm.invalid">Proceed</button>
-        <div>
-            <a routerLink="/register" style="">Don't have account</a>
-        </div>
-        <!-- OR Separator -->
-        <div class="separator">OR</div>
-
-        <!-- Social Login Buttons -->
-        <!-- <button type="button" class="social google"><i class="fab fa-google"></i>    Continue with Google</button>
-        <button type="button" class="social facebook"><i class="fab fa-facebook"></i> Continue with Facebook</button>
-        <button type="button" class="social apple"><i class="fa-brands fa-apple"></i> Continue with Apple</button> -->
-        <div class="social-login-container">
-            <!-- Google Login -->
-            <button class="social-login google" (click)="loginWithGoogle()">
-              <i class="fa-brands fa-google"></i> Continue with Google
-            </button>
-          
-            <!-- Facebook Login -->
-            <button class="social-login facebook" (click)="loginWithFacebook()">
-              <i class="fa-brands fa-facebook"></i> Continue with Facebook
-            </button>
-          
-            <!-- Apple Login -->
-            <button class="social-login apple" (click)="loginWithApple()">
-              <i class="fa-brands fa-apple"></i> Continue with Apple
-            </button>
-        </div>
-    </form>
+    </div>    
 </div>

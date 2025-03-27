@@ -6,7 +6,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 @NgModule({
   declarations: [LoginComponent,
     RegisterComponent,
@@ -16,7 +16,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule 
+    RouterModule,
+    ProgressSpinnerModule
   ]
 })
 export class UserModule { }

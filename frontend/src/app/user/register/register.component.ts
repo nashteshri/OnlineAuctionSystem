@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   standalone: false,
@@ -11,7 +12,7 @@ export class RegisterComponent {
   registerForm!: FormGroup; //form group:Represents the entire form
   countries: string[] = ['India', 'USA', 'UK', 'Canada', 'Australia']; // Country options
 
-  constructor(private fb: FormBuilder,private authService:AuthService) { }
+  constructor(private fb: FormBuilder,private authService:AuthService,private router:Router) { }
   //form validation
   ngOnInit() {
     this.registerForm = this.fb.group({
@@ -35,6 +36,8 @@ export class RegisterComponent {
         next:(response)=>{
           this.isloading=false;
           alert('Login Sucessfully');
+
+          this.router.navigate(['/dashboard']);
         },
         error:(err)=>{
           this.isloading=false;

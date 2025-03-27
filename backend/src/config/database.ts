@@ -1,6 +1,7 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm";
 import { user } from "../entities/user";
+import { AuctionEntity } from "../entities/AuctionEntity";
 export const AppDataSource = new DataSource({
 
     type: "mssql", // Using SQL Server
@@ -9,9 +10,9 @@ export const AppDataSource = new DataSource({
     username: "j2",
     password: "123456",
     database: "JIBE_Main_Training",
-    synchronize: false, // Auto-create tables (for development)
-    logging: false,
-    entities: [user], // Path to entity files
+    synchronize: true, // Auto-create tables (for development)
+    logging: true,
+    entities: ["dist/entities/*.js"], // Path to entity files
     options: {
         encrypt: false, // Disable SSL for local development
         trustServerCertificate: true

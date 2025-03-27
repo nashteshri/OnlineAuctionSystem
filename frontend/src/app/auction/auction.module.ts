@@ -9,6 +9,7 @@ import { CreateAuctionComponent } from './create-auction/create-auction.componen
 import { AuctionRoutingRoutingModule } from './auction-routing-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
   //   SearchComponent

@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-login',
   standalone: false,
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup; // Define form variable
   loginError :string='';
   showPassword = false;
+
   
   constructor(private fb: FormBuilder,private authService:AuthService) { } // Inject FormBuilder
 
@@ -31,22 +33,26 @@ export class LoginComponent implements OnInit {
     });
     
   }
-
+  isloading=false;
   onSubmit(){
     if(this.loginForm.valid){
+      this.isloading=true;
       this.authService.login(this.loginForm.value).subscribe({
         next:(response)=>{
+          this.isloading=false;
           localStorage.setItem('token',response.token);
           alert('Login Sucessfull!');
           //this.router.navigate(['/admin'])
 
         },
         error:(err)=>{
+          this.isloading=false;
           this.loginError='Invalid email or password';
           alert('login failed');
         }
       });
     }else{
+      this.isloading=false;
       this.loginError = 'invalid form submisson';
     }
   }

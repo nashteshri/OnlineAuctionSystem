@@ -1,156 +1,179 @@
 .login-container {
-    width: 350px;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 8px;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  width: 350px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 h2 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .tabs {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 15px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
 }
 
 .tab {
-    background: #ddd;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
+  background: #ddd;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
 }
 
 .tab.active {
-    background: #007bff;
-    color: white;
+  background: #007bff;
+  color: white;
 }
 
 .form-group {
-    margin-bottom: 15px;
-    text-align: left;
+  margin-bottom: 15px;
+  text-align: left;
 }
 
 input[type="email"],
 input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .checkbox {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 button:disabled {
-    background: #ccc;
+  background: #ccc;
 }
 
 .separator {
-    margin: 15px 0;
-    font-weight: bold;
+  margin: 15px 0;
+  font-weight: bold;
 }
+
+
 
 
 /* for password button */
 /* Password Field Styling */
 .password-field {
-    position: relative;
-    display: flex;
-    align-items: center;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .password-field input {
-    width: 100%;
-    padding: 10px;
-    padding-right: 40px; /* Space for eye icon */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px;
+  /* Space for eye icon */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 /* Toggle Button Styling */
 .toggle-btn {
-    position: absolute;
-    right: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    color: #555;
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #555;
 }
 
 /* Hover effect */
 .toggle-btn:hover {
-    color: #007bff;
+  color: #007bff;
 }
 
 /* socail media */
 
 .social-login-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-  }
-  
-  .social-login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    border: none;
-    color: white;
-    font-weight: bold;
-  }
-  
-  .social-login i {
-    margin-right: 10px;
-    font-size: 20px;
-  }
-  
-  /* Google Button */
-  .google {
-    background-color: #db4437;
-  }
-  .google:hover {
-    background-color: #c1351d;
-  }
-  
-  /* Facebook Button */
-  .facebook {
-    background-color: #1877f2;
-  }
-  .facebook:hover {
-    background-color: #155cc0;
-  }
-  
-  /* Apple Button */
-  .apple {
-    background-color: black;
-  }
-  .apple:hover {
-    background-color: #333;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.social-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.social-login i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+/* Google Button */
+.google {
+  background-color: #db4437;
+}
+
+.google:hover {
+  background-color: #c1351d;
+}
+
+/* Facebook Button */
+.facebook {
+  background-color: #1877f2;
+}
+
+.facebook:hover {
+  background-color: #155cc0;
+}
+
+/* Apple Button */
+.apple {
+  background-color: black;
+}
+
+.apple:hover {
+  background-color: #333;
+}
+
+.spinner-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /* Adjust based on the form's height */
+  position: absolute;
+  /* Use relative/absolute positioning as needed */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  /* Semi-transparent background */
+  backdrop-filter: blur(5px);
+  /* Creates the blur effect */
+}

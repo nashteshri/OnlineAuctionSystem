@@ -13,7 +13,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BidFormComponent } from './bidding/bid-form/bid-form.component';
 import { BidHistoryComponent } from './bidding/bid-history/bid-history.component';
-
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
 @NgModule({
   declarations: [
     NavBarComponent,
@@ -33,7 +35,15 @@ import { BidHistoryComponent } from './bidding/bid-history/bid-history.component
     HttpClientModule
     ],
   providers: [
-   
+    provideAnimationsAsync(),
+        providePrimeNG({
+            theme: {
+                preset: Aura,
+                options:{
+                  darkModeSelector:false || 'none'
+                }
+            }
+        })
   ],
   bootstrap: [AppComponent]
 })
