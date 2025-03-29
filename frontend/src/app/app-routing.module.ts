@@ -10,11 +10,11 @@ import { AuthGuard } from './user/auth.guard';
 import { CreateAuctionComponent } from './auction/create-auction/create-auction.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'/search',pathMatch:'full'},
+  {path:'',redirectTo:'/list',pathMatch:'full'},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"admin",component:AdminComponent},
-  {path:"search",component:SearchComponent},
+  // {path:"search",component:SearchComponent},
   {path:"dashboard",component:DashboardComponent,canActivate:[AuthGuard]},
   {path:"create",component:CreateAuctionComponent,canActivate:[AuthGuard]}
 

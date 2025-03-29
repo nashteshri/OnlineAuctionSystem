@@ -27,5 +27,10 @@ export class AuctionService{
             {where:{id}, relations: ["seller"]});
         
     }
+    async deleteAuctionById(id:number){
+      return await AuctionRepositories.delete(
+        {id}
+      );
+    }
 
 }

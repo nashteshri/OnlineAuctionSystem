@@ -25,32 +25,12 @@ export class AuthService {
 
     localStorage.setItem('token', token);
   }
-
-  // logout(): void {
-  //   localStorage.removeItem('token');
-  //   this.router.navigate(['/login']);
-  // }
   logout(): void {
     localStorage.removeItem('token');
   }
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
   }
-  
-  // getUserId(): number {
-    
-  //   const userId = sessionStorage.getItem('sellerId');
-  //   return userId ? Number(userId) : 0; // Convert the stored value to a number, or return 0 if not found.
-  // }
-
-//   getUserId(): number {
-//     const token = localStorage.getItem('authToken'); // Replace 'authToken' with your token key
-//     if (token) {
-//         const decodedToken = jwtDecode<{ userId: number }>(token);
-//         return decodedToken.userId;
-//     }
-//     return 0; // Fallback if token or userId is missing
-// }
 
   getToken(): string | null {
     return localStorage.getItem('token');

@@ -31,4 +31,14 @@ export class AuctionController {
 
         }
     }
+    static async deleteAuctionById(req:Request,res:Response){
+        try{
+            const auctions =await auctionservices.deleteAuctionById(Number(req.params.id));
+            if(!auctions) res.status(404).json({message:"Auction not found"})
+                res.status(201).json(auctions);
+        } catch (error) {
+            res.status(500).json({ message: "error occured at getting by id" })
+
+        }
+    }
 }

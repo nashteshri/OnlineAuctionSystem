@@ -9,7 +9,7 @@ import { CreateAuctionComponent } from './create-auction/create-auction.componen
 import { AuctionRoutingRoutingModule } from './auction-routing-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
-
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { TableModule } from 'primeng/table';
     FormsModule,
     AuctionRoutingRoutingModule,
     ReactiveFormsModule,
-    TableModule
+    TableModule,
+    PaginatorModule
     
   ],
   exports:[

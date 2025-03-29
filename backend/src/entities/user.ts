@@ -1,12 +1,15 @@
 import { Entity,PrimaryGeneratedColumn,Column, OneToMany } from "typeorm";
 import { AuctionEntity } from "./AuctionEntity";
-@Entity("Auction_users3")
+@Entity("Auction_users4")
 export class user{
     @PrimaryGeneratedColumn()
     id:number;
 
     @Column()
     name:string;
+
+    @Column()
+    role:"user"|"admin";
 
     @Column({unique:true})
     email: string;

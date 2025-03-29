@@ -11,7 +11,7 @@ export const AppDataSource = new DataSource({
     password: "123456",
     database: "JIBE_Main_Training",
     synchronize: true, // Auto-create tables (for development)
-    logging: true,
+    logging: false,
     entities: ["dist/entities/*.js"], // Path to entity files
     options: {
         encrypt: false, // Disable SSL for local development
