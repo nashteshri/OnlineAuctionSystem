@@ -10,7 +10,7 @@ export class AuthController{
              res.status(201).json(result);
         }catch (error){
              res.status(400).json({message:"error occured at 1st"});
-        }
+        }       
     }
     static async login(req:Request,res:Response){
         try{

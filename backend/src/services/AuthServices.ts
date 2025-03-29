@@ -23,9 +23,9 @@ export class AuthServices{
         if (!user) throw Error("Invalid Password or Email Please check once");
         const isValidPassword= await bcrypt.compare(loginData.password, user.password);
         if(!isValidPassword) throw Error("Invalid Password or Email Please check once");
-        const token = jwt.sign({userId:user.id,email:user.email},process.env.JWT_SECRET!,{expiresIn: '1h'});
-        console.log(token);
+        const token =  jwt.sign({userId:user.id,email:user.email},process.env.JWT_SECRET!,{expiresIn: '1h'});
         
-        return{userId:user.id,email:user.email};
+        console.log(token);
+        return{token,user};
     }
 }

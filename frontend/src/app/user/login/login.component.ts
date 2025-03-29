@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
         next:(response)=>{
           this.isloading=false;
           localStorage.setItem('token',response.token);
+          console.log(response.token)
           alert('Login Sucessfull!');
           //this.router.navigate(['/admin'])
 

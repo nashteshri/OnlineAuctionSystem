@@ -30,7 +30,9 @@ export class CreateAuctionComponent implements OnInit {
 
   onSubmit() {
     if (this.auctionForm.valid) {
+      console.log(this.auctionForm.value)
       this.auctionservice.createAuction(this.auctionForm.value).subscribe({
+
         next:(res)=>console.log('Auction Created:',res),
         error:(err)=> console.error('error:',err)
 

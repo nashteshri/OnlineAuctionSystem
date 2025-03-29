@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './details-auction.component.css'
 })
 export class DetailsAuctionComponent {
-
+  
 }

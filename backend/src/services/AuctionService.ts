@@ -8,7 +8,6 @@ export class AuctionService{
     
     async createAuction(auctionData:CreateDTO){
         const auction = AuctionRepositories.create(auctionData);
-        
         await AuctionRepositories.save(auction);
         return auction;
     }

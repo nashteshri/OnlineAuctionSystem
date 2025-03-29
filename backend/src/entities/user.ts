@@ -1,6 +1,6 @@
 import { Entity,PrimaryGeneratedColumn,Column, OneToMany } from "typeorm";
 import { AuctionEntity } from "./AuctionEntity";
-@Entity("Auction_users")
+@Entity("Auction_users3")
 export class user{
     @PrimaryGeneratedColumn()
     id:number;

@@ -4,10 +4,11 @@ import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
 
 import { ListAuctionComponent } from './list-auction/list-auction.component';
-import { DetailsAuctionComponent } from './details-auction/details-auction.component';
+import { DetailsAuctionComponent } from './list-auction/details-auction/details-auction.component';
 import { CreateAuctionComponent } from './create-auction/create-auction.component';
 import { AuctionRoutingRoutingModule } from './auction-routing-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     AuctionRoutingRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TableModule
     
   ],
   exports:[

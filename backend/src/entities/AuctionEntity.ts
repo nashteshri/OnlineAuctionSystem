@@ -1,29 +1,29 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { user } from "./user";
-@Entity('Auction_create')
-export class AuctionEntity{
+@Entity('Auction_create3')
+export class AuctionEntity {
     @PrimaryGeneratedColumn()
-    id:number;
+    id: number;
 
     @Column()
-    tile:string;
+    title: string;
 
     @Column()
-    description:string;
+    description: string;
+
+    @Column('decimal', { precision: 10, scale: 2 })
+    startPrice: number;
 
     @Column()
-    startPrice:string;
+    startTime: Date;
 
     @Column()
-    startTime:Date;
+    endTime: Date;
 
     @Column()
-    endTime:Date;
-    
-    @Column()
-    category:string;
+    category: string;
 
-    @ManyToOne (()=>user,(user)=>user.auctions)
-    seller:user;
+    @ManyToOne(() => user, (user) => user.auctions)
+    seller: user;
 }
 
