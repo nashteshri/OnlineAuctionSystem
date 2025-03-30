@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -16,8 +16,15 @@ export class AuctionService {
   }
 
   // Get all auctions
+  
   getAllAuctions(): Observable<any> {
-    return this.http.get(`${this.apiUrl}`);
+    let token=localStorage.getItem("token");
+    let headers=new HttpHeaders({
+      "Authorization":token!,
+      "Content-Type":"application/json"          //getting stored token from local stroage 
+
+    })
+    return this.http.get(`${this.apiUrl}`,{headers});
   }
 
   // Get auction by ID

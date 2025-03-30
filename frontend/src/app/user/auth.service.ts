@@ -14,9 +14,14 @@ export class AuthService {
   register(userData:any):Observable<any>{
     return this.http.post(`${this.apiurl}/register`,userData);
   }
+
+
   login(credentials:any):Observable<any>{
     return this.http.post(`${this.apiurl}/login`,credentials);
   }
+
+
+  
   saveToken(token:string):void{
     localStorage.setItem('token',token);
   }

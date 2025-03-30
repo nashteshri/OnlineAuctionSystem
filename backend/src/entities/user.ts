@@ -8,7 +8,7 @@ export class user{
     @Column()
     name:string;
 
-    @Column()
+    @Column({default:"user"})
     role:"user"|"admin";
 
     @Column({unique:true})

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuctionService } from '../auction.service';
 import { PaginatorState } from 'primeng/paginator';
+import { log } from 'node:console';
 
 interface Column {
   field: string;
@@ -41,7 +42,9 @@ export class ListAuctionComponent  {
         this.auctionservice.getAllAuctions().subscribe((data) => {
             this.auctions = data;
             this.updatePagedAuctions();
-        });
+        }); 
+        
+        
 
         this.cols = [
             { field: 'title', header: 'title' },

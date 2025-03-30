@@ -15,12 +15,15 @@ export class AuctionController {
     static async getAllAuction(req:Request,res:Response){
         try {
             const auctions = await auctionservices.getAllAuctions();
+            console.log("This is get all acuction",auctions);
+            
             res.status(201).json(auctions);
         } catch (error) {
             res.status(400).json({ message: "error occured at getting all" })
 
         }
     }
+    
     static async getAuctionById(req:Request,res:Response){
         try {
             const auctions = await auctionservices.getAuctionById(Number(req.params.id));
