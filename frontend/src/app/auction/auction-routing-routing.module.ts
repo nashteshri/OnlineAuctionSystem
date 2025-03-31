@@ -8,7 +8,7 @@ import { CreateAuctionComponent } from './create-auction/create-auction.componen
 const routes: Routes = [
   {path:'list',component:ListAuctionComponent },
   {path:'create',component:CreateAuctionComponent},
-  {path:'list',component:DetailsAuctionComponent}
+  {path:'details',component:DetailsAuctionComponent}
 ];
 
 @NgModule({

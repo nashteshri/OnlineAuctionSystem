@@ -1,5 +1,6 @@
 import { Entity,PrimaryGeneratedColumn,Column, OneToMany } from "typeorm";
 import { AuctionEntity } from "./AuctionEntity";
+import { Bid } from "./Bid";
 @Entity("Auction_users4")
 export class user{
     @PrimaryGeneratedColumn()
@@ -34,4 +35,7 @@ export class user{
 
     @OneToMany (()=>AuctionEntity,(AuctionEntity)=>AuctionEntity.seller)
     auctions:AuctionEntity[];
+
+    @OneToMany(()=>Bid,(bid) =>bid.bidder)
+    bids:Bid[];
 }

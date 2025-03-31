@@ -37,8 +37,8 @@ export class AuctionService {
   //   return this.http.get(`${this.apiUrl}/search?query=${keyword}`);
   // }
 
-  // // Delete auction by ID
-  // deleteAuction(id: number): Observable<any> {
-  //   return this.http.delete(`${this.apiUrl}/${id}`);
-  // }
+  // Delete auction by ID
+  deleteAuction(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }

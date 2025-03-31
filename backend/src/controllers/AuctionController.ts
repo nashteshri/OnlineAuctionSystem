@@ -44,4 +44,16 @@ export class AuctionController {
 
         }
     }
+    static async updateAuction(req:Request,res:Response){
+        try{
+            const auctionId = Number(req.params.id);
+            const auction = await auctionservices.updateAuction(auctionId,req.body);
+            if(!auction){
+                res.status(404).json({message:"Auction not found"});
+            }
+            res.status(200).json({message:"auction updated succesfully",auction:auction});
+        } catch (error){
+            res.status(400).json({message:(error as Error).message});
+        }
+    }
 }

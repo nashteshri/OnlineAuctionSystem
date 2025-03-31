@@ -1,5 +1,6 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { user } from "./user";
+import { Bid } from "./Bid";
 @Entity('Auction_create3')
 export class AuctionEntity {
     @PrimaryGeneratedColumn()
@@ -25,5 +26,8 @@ export class AuctionEntity {
 
     @ManyToOne(() => user, (user) => user.auctions)
     seller: user;
+    
+    @OneToMany(()=> Bid,(bid) =>bid.auction)
+    bids:Bid[];
 }
 

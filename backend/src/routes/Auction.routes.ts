@@ -4,10 +4,10 @@ import { authMiddleware } from "../middleware/authMiddleware";
 const auctionrouter = express.Router();
 
 auctionrouter.post("/",authMiddleware,AuctionController.createAuction);
-auctionrouter.get("/",authMiddleware,AuctionController.getAllAuction);
+auctionrouter.get("/",AuctionController.getAllAuction);
 // auctionrouter.get("/",authMiddleware,AuctionController.getAllAuction);
-auctionrouter.get("/:id",authMiddleware,AuctionController.getAuctionById);
+auctionrouter.get("/:id",AuctionController.getAuctionById);
 auctionrouter.delete("/delete/:id",authMiddleware, AuctionController.deleteAuctionById);
-
+auctionrouter.patch("/update/:id",authMiddleware,AuctionController.updateAuction);
 export default auctionrouter;
 

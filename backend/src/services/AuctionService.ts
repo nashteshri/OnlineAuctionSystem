@@ -32,5 +32,12 @@ export class AuctionService{
         {id}
       );
     }
-
-}
+    async updateAuction(id: number,updateData:Partial<CreateDTO>){
+      const auction = await AuctionRepositories.findOne({where:{id}});
+      if (!auction) throw new Error ("Auction not found");
+      
+      Object.assign(auction,updateData);
+      await AuctionRepositories.save(auction);
+      return auction;
+    }
+} 
