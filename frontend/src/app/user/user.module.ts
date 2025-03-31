@@ -5,6 +5,8 @@ import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 @NgModule({
@@ -17,7 +19,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    ButtonModule
   ]
 })
 export class UserModule { }

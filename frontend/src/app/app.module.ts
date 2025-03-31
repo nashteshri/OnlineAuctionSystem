@@ -10,6 +10,8 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { SearchComponent } from './auction/search/search.component';
 import { AuctionModule } from './auction/auction.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
+
 import { CommonModule } from '@angular/common';
 import { BidFormComponent } from './bidding/bid-form/bid-form.component';
 import { BidHistoryComponent } from './bidding/bid-history/bid-history.component';
@@ -32,7 +34,8 @@ import Aura from '@primeng/themes/aura';
     AuctionModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule
     ],
   providers: [
     provideAnimationsAsync(),

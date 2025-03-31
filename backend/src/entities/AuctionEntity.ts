@@ -1,15 +1,15 @@
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { user } from "./user";
 import { Bid } from "./Bid";
-@Entity('Auction_create3')
+@Entity('Auction_create5')
 export class AuctionEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({length:50})
     title: string;
 
-    @Column()
+    @Column({length:255})
     description: string;
 
     @Column('decimal', { precision: 10, scale: 2 })
@@ -21,7 +21,7 @@ export class AuctionEntity {
     @Column()
     endTime: Date;
 
-    @Column()
+    @Column({length:50})
     category: string;
 
     @ManyToOne(() => user, (user) => user.auctions)

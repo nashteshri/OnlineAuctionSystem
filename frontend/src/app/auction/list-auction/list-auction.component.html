@@ -11,7 +11,8 @@
                 <th>Start Time</th>
                 <th>End Time</th>
                 <th>Category</th>
-                <th>Bid/Details</th>
+                <th>Bid</th>
+                <th>Details</th>
             </tr>
         </ng-template>
         <ng-template #body let-auction>
@@ -23,7 +24,8 @@
                 <td style=" font-size: larger;">{{ auction.startTime | date: 'short' }}</td>
                 <td style=" font-size: larger;">{{ auction.endTime | date: 'short' }}</td>
                 <td style=" font-size: larger;">{{ auction.category }}</td>
-                <td style=" font-size: larger;"><button>Bid/Details</button></td>
+                <td style=" font-size: larger;"><p-button label="Place Bid" /></td>
+                <td style=" font-size: larger;"><p-button label="Details" /></td>
             </tr>
         </ng-template>
     </p-table>
