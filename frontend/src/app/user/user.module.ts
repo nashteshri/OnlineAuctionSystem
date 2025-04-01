@@ -9,11 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { ProfileComponent } from './profile/profile.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactComponent } from './contact/contact.component';
 @NgModule({
   declarations: [LoginComponent,
     RegisterComponent,
     AdminComponent,
-    ProfileComponent
+    ProfileComponent,
+    AboutUsComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,

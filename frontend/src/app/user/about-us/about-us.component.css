@@ -1,0 +1,76 @@
+/* General Styling */
+.about-container {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  
+  /* Header Styling */  
+  .brand {
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  nav ul li {
+    display: inline;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Sections Styling */
+  section {
+    width: 80%;
+    margin: auto;
+    padding: 40px 0;
+    text-align: center;
+  }
+  
+  h2 {
+    color: #007bff;
+    margin-bottom: 15px;
+  }
+  
+  .highlight {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .green-text {
+    color: green;
+  }
+  
+  /* Lists */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    padding: 8px 0;
+    font-size: 18px;
+  }
+  

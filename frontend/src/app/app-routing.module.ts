@@ -8,6 +8,8 @@ import { SearchComponent } from './auction/search/search.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { AuthGuard } from './user/auth.guard';
 import { CreateAuctionComponent } from './auction/create-auction/create-auction.component';
+import { AboutUsComponent } from './user/about-us/about-us.component';
+import { ContactComponent } from './user/contact/contact.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/list',pathMatch:'full'},
@@ -16,8 +18,9 @@ const routes: Routes = [
   {path:"admin",component:AdminComponent},
   // {path:"search",component:SearchComponent},
   {path:"dashboard",component:ProfileComponent,canActivate:[AuthGuard]},
-  {path:"create",component:CreateAuctionComponent,canActivate:[AuthGuard]}
-
+  {path:"create",component:CreateAuctionComponent,canActivate:[AuthGuard]},
+  {path:'about',component:AboutUsComponent},
+  { path: 'contact', component: ContactComponent }
 ];
 
 @NgModule({
