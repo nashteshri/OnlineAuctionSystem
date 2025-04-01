@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
@@ -18,6 +18,7 @@ import { BidHistoryComponent } from './bidding/bid-history/bid-history.component
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
+import { AuthInterceptor } from './auth.interceptor';
 @NgModule({
   declarations: [
     NavBarComponent,
@@ -38,6 +39,7 @@ import Aura from '@primeng/themes/aura';
     ButtonModule
     ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     provideAnimationsAsync(),
         providePrimeNG({
             theme: {

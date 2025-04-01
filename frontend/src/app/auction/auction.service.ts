@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class AuctionService {
   private apiUrl = 'http://localhost:3000/api/auction'; // Backend API URL
-
+  private apiUrl2 = 'http://localhost:3000/api/auction/create';
   constructor(private http: HttpClient) {}
 
   // Create a new auction
   createAuction(auctionData: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}`, auctionData);
+    return this.http.post(`${this.apiUrl2}`, auctionData);
   }
 
   // Get all auctions

@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn ,CreateDateColumn} from "typeorm";
 import { user } from "./user";
 import { AuctionEntity } from "./AuctionEntity";
 
@@ -10,12 +10,13 @@ import { AuctionEntity } from "./AuctionEntity";
     @Column("decimal",{precision:10,scale:2})
     amount:number;
 
-    @Column({type:"timestamp"})
-    bidTime:Date;
-
     @ManyToOne(()=>user,(user)=>user.bids)
     bidder:user;
 
     @ManyToOne(()=>AuctionEntity,(auction)=>auction.bids)
     auction:AuctionEntity;
+    
+    @CreateDateColumn()
+    bidTime:Date;
  }
+

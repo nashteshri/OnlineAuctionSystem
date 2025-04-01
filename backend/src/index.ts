@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import router from "./routes/auth.routes";
 import auctionrouter from "./routes/Auction.routes";
 import profilerouter from "./routes/profile.routes";
+import bidrouter from "./routes/Bid.routes";
 const app = express();
 const PORT = 3000;
 app.use(express.json());                                                       
@@ -12,7 +13,7 @@ app.use(cors());
 app.use("/api",router);
 app.use("/api/auction",auctionrouter);
 app.use("/api/profile",profilerouter);
-
+app.use("/api/bid",bidrouter);
 AppDataSource.initialize()
     .then(() => {
         console.log("Database connected successfully!");

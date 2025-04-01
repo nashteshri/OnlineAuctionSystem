@@ -1,3 +1,4 @@
+<script src="sweetalert2.all.min.js"></script>
 <div >
     <div class="login-container">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -33,7 +34,8 @@
     
     
             <!-- Submit Button -->
-            <button type="submit" [disabled]="loginForm.invalid">Proceed</button>
+            <button type="submit" [disabled]="loginForm.invalid" >Proceed</button>
+
             <div>
                 <a routerLink="/register" style="">Don't have account</a>
             </div>

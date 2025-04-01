@@ -33,8 +33,14 @@ export class CreateAuctionComponent implements OnInit {
       console.log(this.auctionForm.value)
       this.auctionservice.createAuction(this.auctionForm.value).subscribe({
 
-        next:(res)=>console.log('Auction Created:',res),
-        error:(err)=> console.error('error:',err)
+        next:(res)=>{console.log('Auction Created:',res),
+          alert('Register Succesfully !');
+        },
+          
+        error:(err)=> {
+          console.error('error:',err)
+          alert('contact the admin to post you bid ');
+        }
 
       })
       

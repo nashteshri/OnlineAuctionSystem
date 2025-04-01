@@ -1,9 +1,9 @@
-import { IsDate, IsNotEmpty, IsNumber, Min } from "class-validator";
+import { Type } from "class-transformer";
+import { IsDate, IsNotEmpty, IsNumber, IsPositive, Min } from "class-validator";
 import { PrimaryGeneratedColumn } from "typeorm/decorator/columns/PrimaryGeneratedColumn";
 
 export class BidDTO{
-    @PrimaryGeneratedColumn()
-    id:number;
+    
     @IsNumber()
     @Min(100,{message:"Bid Amount must be greater then 100"})
     amount:number;
@@ -11,6 +11,11 @@ export class BidDTO{
     @IsDate()
     @IsNotEmpty({message:"Bid time is requried"})
     bidTime:Date;
+     
+
+    @IsDate()
+    @IsNotEmpty({message:"Bid time is required"})
+    auctionId:number;
 
     
 }

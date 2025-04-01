@@ -6,7 +6,9 @@ import { AuthRequest } from "../types/user.type";
 export const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
     
     const token = req.header("Authorization")!;
-    // console.log(token);
+    console.log(token);
+    console.log(req);
+    
     
     if (!token) {
         res.status(401).json({ message: "Access Denied" });
