@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiurl ='http://localhost:3000/api';
+  private apiurl ='http://localhost:5000/api';
 
   constructor(private http:HttpClient,private router:Router) {}
 
@@ -20,8 +20,6 @@ export class AuthService {
     return this.http.post(`${this.apiurl}/login`,credentials);
     
   }
-
-
   
   saveToken(token:string):void{
     localStorage.setItem('token',token);
@@ -38,4 +36,20 @@ export class AuthService {
     localStorage.removeItem('token');
     this.router.navigate(['/login'])
   }
+
+  //Creating For Profile 
+  private apiurl2 ='http://localhost:5000/api/profile';
+  private apiurl3='http://localhost:5000/api/bid'
+  getProfile(): Observable<any> {
+    return this.http.get(`${this.apiurl2}/`);
+  }
+
+  getBiddingHistory(): Observable<any> {
+    return this.http.get(`${this.apiurl3}/`);
+  }
+
+  changePassword(oldPassword: string, newPassword: string): Observable<any> {
+    return this.http.patch(`${this.apiurl2}/change`, { oldPassword, newPassword });
+  }
 }
+
