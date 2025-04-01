@@ -1,0 +1,38 @@
+<div class="contact-container">
+    <h1><span class="brand">CONTACT</span> US</h1>
+    <section class="contact-info" @slideIn>
+        <h2>Get in Touch</h2>
+        <p>We are here to assist you. Contact us via email or phone, or visit us at our office.</p>
+        <div class="contact-details">
+            <div class="detail">
+                <h3>📍 Address</h3>
+                <p>402,Shivranath Banglo,near Panchayat samiti ,415301,Atpadi </p>
+            </div>
+            <div class="detail">
+                <h3>📧 Email</h3>
+                <label for="email">nashteshrinivas.At.gmail.com</label>
+
+            </div>
+            <div class="detail">
+                <h3>📞 Phone</h3>
+                <p>+91 7090307031</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form" @fadeIn>
+        <h2>Send Us a Message</h2>
+        <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+            <input type="text" formControlName="name" placeholder="Your Name" required />
+            <input type="email" formControlName="email" placeholder="Your Email" required />
+            <textarea formControlName="message" rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit" [disabled]="contactForm.invalid">Send Message</button>
+        </form>
+    </section>
+
+    <section class="map" @slideIn>
+        <h1>Find Us</h1>
+        <h3>On google Maps As BidVerse HeadQauters</h3>
+
+    </section>
+</div>

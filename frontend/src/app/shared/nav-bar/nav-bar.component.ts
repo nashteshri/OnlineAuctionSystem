@@ -19,7 +19,7 @@ export class NavBarComponent {
   
   constructor(public authService:AuthService){
     this.mainMenuItem=['About Us','Contact'];
-    this.mainMenulink=['/','/'];
+    this.mainMenulink=['/about','/contact'];
   }
   logout(){
     this.authService.logout();
