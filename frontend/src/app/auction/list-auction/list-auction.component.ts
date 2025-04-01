@@ -22,15 +22,6 @@ export class ListAuctionComponent  {
   pagedAuctions!: any[];
   constructor (private auctionservice:AuctionService) {}
 
-  // ngOnInit():void{
-  //   this.getdetails()
-
-  // }
-  // private getdetails(){
-  //   this.auctionservice.getAllAuctions().subscribe((items)=>{
-  //     this.auctionservice=items
-  //   })
-  // }
 
     auctions!: any[];
 

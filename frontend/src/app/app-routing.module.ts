@@ -5,7 +5,7 @@ import { RegisterComponent } from './user/register/register.component';
 import { AdminComponent } from './user/admin/admin.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { SearchComponent } from './auction/search/search.component';
-import { DashboardComponent } from './user/dashboard/dashboard.component';
+import { ProfileComponent } from './user/profile/profile.component';
 import { AuthGuard } from './user/auth.guard';
 import { CreateAuctionComponent } from './auction/create-auction/create-auction.component';
 
@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"admin",component:AdminComponent},
   // {path:"search",component:SearchComponent},
-  {path:"dashboard",component:DashboardComponent,canActivate:[AuthGuard]},
+  {path:"dashboard",component:ProfileComponent,canActivate:[AuthGuard]},
   {path:"create",component:CreateAuctionComponent,canActivate:[AuthGuard]}
 
 ];

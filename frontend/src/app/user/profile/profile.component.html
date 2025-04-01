@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>User Profile</h2>
+    <p><strong>Name:</strong> {{ profile?.name }}</p>
+    <p><strong>Email:</strong> {{ profile?.email }}</p>
+    <p-button label="Log out" (click)="logout()" />
+    <h3>Change Password</h3>
+    <input type="password" [(ngModel)]="oldPassword" placeholder="Old Password" />
+    <input type="password" [(ngModel)]="newPassword" placeholder="New Password" />
+    <button (click)="changePassword()">Update Password</button>
+  
+    <h3>Bidding History</h3>
+    <table>
+      <tr>
+        <th>Auction</th>
+        <th>Amount</th>
+        <th>Bid Time</th>
+      </tr>
+      <tr *ngFor="let bid of biddingHistory">
+        <td>{{ bid.auctionTitle }}</td>
+        <td>{{ bid.amount }}</td>
+        <td>{{ bid.bidTime | date:'short' }}</td>
+      </tr>
+    </table>
+  </div>  
+

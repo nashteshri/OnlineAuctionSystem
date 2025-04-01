@@ -5,22 +5,23 @@ import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
-
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 @NgModule({
   declarations: [LoginComponent,
     RegisterComponent,
     AdminComponent,
-    DashboardComponent
+    ProfileComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
     ProgressSpinnerModule,
-    ButtonModule
+    ButtonModule,
+    FormsModule
   ]
 })
 export class UserModule { }
