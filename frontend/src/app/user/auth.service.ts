@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiurl ='http://localhost:5000/api';
+  private apiurl ='http://localhost:3000/api';
 
   constructor(private http:HttpClient,private router:Router) {}
 
@@ -38,8 +38,8 @@ export class AuthService {
   }
 
   //Creating For Profile 
-  private apiurl2 ='http://localhost:5000/api/profile';
-  private apiurl3='http://localhost:5000/api/bid'
+  private apiurl2 ='http://localhost:3000/api/profile';
+  private apiurl3='http://localhost:3000/api/bid'
   getProfile(): Observable<any> {
     return this.http.get(`${this.apiurl2}/`);
   }
@@ -47,6 +47,7 @@ export class AuthService {
   getBiddingHistory(): Observable<any> {
     return this.http.get(`${this.apiurl3}/`);
   }
+  
 
   changePassword(oldPassword: string, newPassword: string): Observable<any> {
     return this.http.patch(`${this.apiurl2}/change`, { oldPassword, newPassword });

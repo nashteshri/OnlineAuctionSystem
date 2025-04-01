@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { log } from 'node:console';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,7 +21,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProfile();
-    // this.loadBiddingHistory();
+    this.loadBiddingHistory();
   }
 
   loadProfile() {
@@ -28,10 +30,21 @@ export class ProfileComponent implements OnInit {
     });
   }
   loadBiddingHistory() {
-    this.authService.getBiddingHistory().subscribe((data) => {
-      this.biddingHistory = data;
+    this.authService.getBiddingHistory().subscribe({
+      next: (data) => {
+        if (data) {
+          this.biddingHistory = data;
+        }
+        console.log('Bidding History Data:', this.biddingHistory);
+      },
+      error: (err) => {
+        console.error('Error fetching bidding history:', err);
+      }
+      
     });
+
   }
+  
   changePassword() {
     if (!this.oldPassword || !this.newPassword) {
       alert("Please enter both old and new passwords.");

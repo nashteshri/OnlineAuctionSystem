@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuctionService {
-  private apiUrl = 'http://localhost:5000/api/auction'; // Backend API URL
-  private apiUrl2 = 'http://localhost:5000/api/auction/create';
+  private apiUrl = 'http://localhost:3000/api/auction'; // Backend API URL
+  private apiUrl2 = 'http://localhost:3000/api/auction/create';
   constructor(private http: HttpClient) {}
 
   // Create a new auction
