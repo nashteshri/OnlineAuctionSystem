@@ -5,13 +5,10 @@ import { AppDataSource } from "../config/database";
 import { BidRepositories } from "../Repositories/BidRepositories";
 export class profileService {
     async getProfile(userId: number): Promise<profileDTO> {
-        console.log("get profile");
-        console.log(userId);
         const user = await UserRepositories.findOne({
             where: { id: userId },
             select: ["id", "name", "email"]
         });
-        console.log(user);
         if (!user) {
             throw new Error("user not found");
             console.log("user not found");
@@ -35,14 +32,5 @@ export class profileService {
         return {message:"password updated succesfully"}
 
     }
-
-    //getting bidding history
-
-    // async getBiddingHistory(userId:number):Promise<biddingHistory[]>{ //biddingHistoryDTO
-
-    //     const bidding= await BidRepositories.find({
-    //         where:{user:{id:userId}},
-    //     })
-    // }
 
 }

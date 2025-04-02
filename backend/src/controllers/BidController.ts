@@ -33,5 +33,4 @@ export class BidController{
             res.status(500).json({message:"Error fetching user bids",error:(error as Error).message});
         }
     }
-
 }

@@ -5,26 +5,24 @@ import { AuctionEntity } from "../entities/AuctionEntity";
 import { AuctionRepositories } from "../Repositories/AuctionRepositories";
 
 export class AuctionService{
-    
+  auctionRepository = AppDataSource.getRepository(AuctionEntity);
     async createAuction(auctionData:CreateDTO){
         const auction = AuctionRepositories.create(auctionData);
         await AuctionRepositories.save(auction);
-        return auction;
+        return {message:"auction created sucessfully"};
     }
 
     async getAllAuctions() {
         try {
-          const auctionRepository = AppDataSource.getRepository(AuctionEntity);
-    
-          // Fetch all auctions with seller relationship
-          return await auctionRepository.find({ relations: ["seller"] });
+          // Fetch all auctions
+          return await this.auctionRepository.find();
         } catch (error) {
           throw new Error("Error retrieving auctions: ");
         }
       }
     async getAuctionById(id:number){
         return await AuctionRepositories.findOne(
-            {where:{id}, relations: ["seller"]});
+            {where:{id}});
         
     }
     async deleteAuctionById(id:number){

@@ -5,8 +5,9 @@ import { BidRepositories } from "../Repositories/BidRepositories";
 
 export class BidService{
     async placeBid(userId:number,bidDate:BidDTO){
-        const {amount ,auctionId} = bidDate;
-        
+        // const {amount ,auctionId} = bidDate; //using object destructuring in TypeScript to extract properties from the bidDate object.
+        const amount = bidDate.amount;
+        const auctionId = bidDate.auctionId;
         //checking if auction exists
         const auction = await AuctionRepositories.findOne({
             where:{id:auctionId},

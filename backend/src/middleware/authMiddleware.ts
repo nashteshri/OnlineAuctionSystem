@@ -11,17 +11,17 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
     
     
     if (!token) {
-        res.status(401).json({ message: "Access Denied" });
+        res.status(401).json({ message: "Access Denied provied the token" });
     }
     try {
         const verified = Jwt.verify(token, process.env.JWT_SECRET as string);
-        const role = "admin";
+        
         console.log(verified);
         (req as any).user = verified;
         console.log(user);
-        
+        const role = "admin";
         if(role == (req as any).user.role)
-            next();//pass the controll to the next middleware ?router handler
+            next();//pass the controll to the next middleware or router handler
         else{
             res.status(401).json({ message: "you are not admin" });
         }

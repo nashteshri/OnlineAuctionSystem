@@ -25,7 +25,7 @@ export class AuctionEntity {
     category: string;
 
     @ManyToOne(() => user, (user) => user.auctions)
-    seller: user;
+    seller: user;  //each auction has singl seller //we can remove this as we dont want the seller id as we want just to create the auction by admin
     
     @OneToMany(()=> Bid,(bid) =>bid.auction)
     bids:Bid[];

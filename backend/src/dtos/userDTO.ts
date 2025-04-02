@@ -29,7 +29,7 @@ export class RegisterDTO{
 
 export class LoginDTO{
     @IsString()
-    @IsNotEmpty({message:"Title is required"})
+    @IsNotEmpty({message:"email is required"})
     email:string;
     @IsString()
     @MinLength(6,{message:"password must be at least 6 charasters long"})

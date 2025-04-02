@@ -9,7 +9,7 @@ export class AuthController{
             const result = await authService.register(req.body);
              res.status(201).json(result);
         }catch (error){
-             res.status(400).json({message:"error occured at 1st"});
+             res.status(400).json({err: (error as Error).message});
         }       
     }
     static async login(req:Request,res:Response){

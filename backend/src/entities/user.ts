@@ -34,7 +34,7 @@ export class user{
     country:string;
 
     @OneToMany (()=>AuctionEntity,(AuctionEntity)=>AuctionEntity.seller)
-    auctions:AuctionEntity[];
+    auctions:AuctionEntity[]; //each user can have multiple auctions.
 
     @OneToMany(()=>Bid,(bid) =>bid.bidder)
     bids:Bid[];
