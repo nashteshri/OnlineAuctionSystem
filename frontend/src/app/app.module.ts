@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
 import { FooterComponent } from './shared/footer/footer.component';
-import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { SearchComponent } from './auction/search/search.component';
 import { AuctionModule } from './auction/auction.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -14,19 +13,21 @@ import { ButtonModule } from 'primeng/button';
 
 import { CommonModule } from '@angular/common';
 import { BidFormComponent } from './bidding/bid-form/bid-form.component';
-import { BidHistoryComponent } from './bidding/bid-history/bid-history.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 import { AuthInterceptor } from './auth.interceptor';
+import { BidUpdateComponent } from './bidding/bid-update/bid-update.component';
+import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 @NgModule({
   declarations: [
-    NavBarComponent,
     AppComponent,
     FooterComponent,
     SearchComponent,
     BidFormComponent,
-    BidHistoryComponent
+    BidFormComponent,
+    BidUpdateComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

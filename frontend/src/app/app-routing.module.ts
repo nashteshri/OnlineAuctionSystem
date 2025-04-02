@@ -10,6 +10,7 @@ import { AuthGuard } from './user/auth.guard';
 import { CreateAuctionComponent } from './auction/create-auction/create-auction.component';
 import { AboutUsComponent } from './user/about-us/about-us.component';
 import { ContactComponent } from './user/contact/contact.component';
+import { BidUpdateComponent } from './bidding/bid-update/bid-update.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/list',pathMatch:'full'},
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:"dashboard",component:ProfileComponent,canActivate:[AuthGuard]},
   {path:"create",component:CreateAuctionComponent,canActivate:[AuthGuard]},
   {path:'about',component:AboutUsComponent},
-  { path: 'contact', component: ContactComponent }
+  { path: 'contact', component: ContactComponent },
+  { path: 'BidUpdate', component: BidUpdateComponent }
 ];
 
 @NgModule({

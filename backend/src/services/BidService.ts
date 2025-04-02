@@ -1,3 +1,4 @@
+import { io } from "..";
 import { BidDTO } from "../dtos/BidDTO";
 import { AuctionRepositories } from "../Repositories/AuctionRepositories";
 import { BidRepositories } from "../Repositories/BidRepositories";
@@ -43,6 +44,7 @@ export class BidService{
             bidTime:new Date()
         });
         await BidRepositories.save(newBid);
+        io.emit("newBid",{auctionId,amount,userId,timestamp: new Date().toISOString()});//using websocket so that connected users will see the new bid
         return {message:"Bid placed succesfully!"};
     }
 

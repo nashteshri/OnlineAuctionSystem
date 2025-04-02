@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Route } from '@angular/router';
 import { AuthService } from '../../user/auth.service';
 import { log } from 'console';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-nav-bar',
   standalone: false,

@@ -59,4 +59,18 @@ export class AuctionController {
             res.status(400).json({message:(error as Error).message});
         }
     }
+
+    static async endAuction(req: Request, res: Response) {
+        try {
+            const { auctionId } = req.body;
+            if (!auctionId) {
+                res.status(400).json({ message: "Auction ID is required" });
+            }
+
+            const result = await auctionservices.endAuction(auctionId);
+            res.status(200).json(result);
+        } catch (error) {
+            res.status(500).json({ message: (error as Error).message });
+        }
+    }
 }

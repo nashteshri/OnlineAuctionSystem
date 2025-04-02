@@ -1,0 +1,9 @@
+<div>
+    <h3>Latest Bid </h3>
+    <p *ngIf="latestBid">
+        User{{latestBid.userId}}placed r{{latestBid.amount}} on Auction ID:{{latestBid.auctionId}}
+    </p>
+
+    <h3 *ngIf="auctionResult">Auction Ended</h3>
+    <p *ngIf="auctionResult">Winner :User {{auctionResult.winner}} won with rs {{auctionResult.amount}}</p>
+</div>
