@@ -6,6 +6,7 @@ import { UserRepositories } from "../Repositories/UserRepositories";
 import { RegisterDTO } from "../dtos/userDTO";
 import { LoginDTO } from "../dtos/userDTO";
 import 'dotenv/config'
+import { jwtDecode } from "jwt-decode";
 
 export class AuthServices{
     async register(userData:RegisterDTO){
@@ -28,4 +29,6 @@ export class AuthServices{
         console.log(token);
         return{token,user};
     }
+
+
 }

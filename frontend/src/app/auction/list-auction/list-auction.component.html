@@ -1,8 +1,12 @@
 <div class="card">
-    <p-table 
-        [value]="pagedAuctions" 
-        [tableStyle]="{ 'min-width': '50rem' }">
+    <p-table [value]="pagedAuctions" [tableStyle]="{ 'min-width': '50rem' }">
+
+        <!-- Table Header -->
         <ng-template #header>
+            <td>
+                <a [routerLink]="'/live-bids'" class="live-bids-link">View Live Bids</a>
+            </td>
+            
             <tr>
                 <th>No</th>
                 <th>Title</th>
@@ -15,28 +19,39 @@
                 <th>Details</th>
             </tr>
         </ng-template>
+
+        <!-- Table Body -->
         <ng-template #body let-auction>
             <tr>
                 <td style=" font-size: larger;">{{ auction.id }}</td>
-                <td style=" font-size: larger;" >{{ auction.title }}</td>
+                <td style=" font-size: larger;">{{ auction.title }}</td>
                 <td style=" font-size: larger;">{{ auction.description }}</td>
                 <td style=" font-size: larger;">{{ auction.startPrice | currency: 'INR' }}</td>
                 <td style=" font-size: larger;">{{ auction.startTime | date: 'short' }}</td>
                 <td style=" font-size: larger;">{{ auction.endTime | date: 'short' }}</td>
                 <td style=" font-size: larger;">{{ auction.category }}</td>
-                <td style=" font-size: larger;"><p-button label="Place Bid" /></td>
+
+                <!-- Place Bid Button -->
+                <td style="font-size: larger;">
+                    <p-button label="Place Bid" class="place-bid-button" (click)="toggleBidForm(auction.id)" />
+                    <div *ngIf="selectedAuctionId === auction.id">
+                        <app-bid-form [auctionId]="auction.id"></app-bid-form>
+                    </div>
+                </td>
+                
+                
+                
+
+                <!-- Auction Details Button -->
                 <td style=" font-size: larger;"><p-button label="Details" /></td>
             </tr>
         </ng-template>
     </p-table>
 
+    <!-- Pagination -->
     <div class="card flex justify-center">
-        <p-paginator 
-            (onPageChange)="onPageChange($event)" 
-            [first]="first" 
-            [rows]="rows" 
-            [totalRecords]="auctions.length" 
-            [rowsPerPageOptions]="[10, 20, 30]">
+        <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows"
+            [totalRecords]="auctions.length" [rowsPerPageOptions]="[10, 20, 30]">
         </p-paginator>
     </div>
 </div>

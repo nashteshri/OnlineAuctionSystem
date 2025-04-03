@@ -10,34 +10,29 @@ import { SearchComponent } from './auction/search/search.component';
 import { AuctionModule } from './auction/auction.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
-
-import { CommonModule } from '@angular/common';
-import { BidFormComponent } from './bidding/bid-form/bid-form.component';
+import { BidFormComponent } from './auction/list-auction/bid-form/bid-form.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 import { AuthInterceptor } from './auth.interceptor';
-import { BidUpdateComponent } from './bidding/bid-update/bid-update.component';
+import { BidUpdateComponent } from './auction/list-auction/bid-update/bid-update.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     SearchComponent,
-    BidFormComponent,
-    BidFormComponent,
-    BidUpdateComponent,
-    NavBarComponent
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     UserModule,
-    AuctionModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ButtonModule
+    ButtonModule,
+    AuctionModule
     ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

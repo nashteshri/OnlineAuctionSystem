@@ -1,15 +1,17 @@
 import express from "express";
 import { AppDataSource } from "./config/database";
 import cors from "cors";
-import dotenv from "dotenv";
 import router from "./routes/auth.routes";
 import auctionrouter from "./routes/Auction.routes";
 import profilerouter from "./routes/profile.routes";
 import bidrouter from "./routes/Bid.routes";
 import { Server } from "socket.io";
-import {createServer} from "http"
-const app = express();
-const server = createServer(app);//
+import {createServer} from "http";
+
+
+const app = express();//handing request
+const server = createServer(app); //creating an htttp server ussing express aapp required for socket.io it is just the bridge between express and socket.io
+
 const io= new Server(server!,{
     cors:{origin:"http://localhost:4200"}//connecting to angular
 });

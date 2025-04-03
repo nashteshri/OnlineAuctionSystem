@@ -10,6 +10,9 @@ import { AuctionRoutingRoutingModule } from './auction-routing-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
+import { BidFormComponent } from './list-auction/bid-form/bid-form.component';
+import { DialogModule } from 'primeng/dialog';
+import { BidUpdateComponent } from './list-auction/bid-update/bid-update.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,8 @@ import { PaginatorModule } from 'primeng/paginator';
   ListAuctionComponent,
   DetailsAuctionComponent,
   CreateAuctionComponent,
+  BidFormComponent,
+  BidUpdateComponent
   
   
   ],
@@ -27,7 +32,8 @@ import { PaginatorModule } from 'primeng/paginator';
     ReactiveFormsModule,
     TableModule,
     PaginatorModule,
-    ButtonModule
+    ButtonModule,
+    DialogModule
     
   ],
   exports:[

@@ -1,0 +1,9 @@
+<div>
+    <h3>Latest Bids</h3>
+    <ul>
+      <li *ngFor="let bid of latestBid">
+        User {{ bid.userId }} placed ₹{{ bid.amount }} on Auction ID: {{ bid.auctionId }}
+      </li>
+    </ul>
+  </div>
+  

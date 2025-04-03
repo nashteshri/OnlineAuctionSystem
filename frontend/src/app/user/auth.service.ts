@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
 // import { Router } from 'express';
 @Injectable({
   providedIn: 'root'
@@ -51,6 +52,20 @@ export class AuthService {
 
   changePassword(oldPassword: string, newPassword: string): Observable<any> {
     return this.http.patch(`${this.apiurl2}/change`, { oldPassword, newPassword });
+  }
+
+  getUserId(): number | null {
+    const token = this.getToken();
+    if (!token) return null;
+
+    try {
+      const decodedToken: any = jwtDecode(token);
+      console.log("Decoded Token:", decodedToken);
+      return decodedToken.id; // Ensure your JWT contains `userId`
+    } catch (error) {
+      console.error("Error decoding token:", error);
+      return null;
+    }
   }
 }
 
