@@ -16,11 +16,14 @@ export class NavBarComponent {
   mainMenulink: string[];
   search:string| undefined;
   // isUserLoggedIn: boolean = false;
-  
+  role!:any;
   
   constructor(public authService:AuthService){
     this.mainMenuItem=['About Us','Contact'];
     this.mainMenulink=['/about','/contact'];
+    this.role=authService.getUserRole()
+
+    
   }
   logout(){
     this.authService.logout();

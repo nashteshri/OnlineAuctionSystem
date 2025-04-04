@@ -2,11 +2,7 @@ import { Component, Input } from '@angular/core';
 import { BidService } from '../../../Bid.service';
 import { AuthService } from '../../../user/auth.service';
 import { WebsocketService } from '../../WebsocketService';
-
-import { Dialog } from 'primeng/dialog';
-import { ButtonModule } from 'primeng/button';
-import { InputTextModule } from 'primeng/inputtext';
-
+import { log } from 'console';
 
 @Component({
   selector: 'app-bid-form',
@@ -15,18 +11,19 @@ import { InputTextModule } from 'primeng/inputtext';
   styleUrl: './bid-form.component.css'
 })
 export class BidFormComponent {
-  visible: boolean = false;
-
-    showDialog() {
-        this.visible = true;
-    }
+  
   @Input() auctionId!: number;  // Auction ID passed from ListAuctionComponent
-  userId!: number; // Logged-in user ID
+  userId!: number; // Loggedin user ID
   bidAmount!: number;
+  role!:string;
+  
 
   constructor(private bidService: BidService, private authService: AuthService,private webSocketService:WebsocketService) {
     this.userId = this.authService.getUserId() as number; 
+    this.role = this.authService.getUserRole() as  any;
+    console.log(this.role);
   }
+
 
   submitBid(): void {
     if (!this.bidAmount || this.bidAmount <= 0) {

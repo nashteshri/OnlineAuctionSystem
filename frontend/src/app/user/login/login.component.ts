@@ -32,12 +32,7 @@ export class LoginComponent implements OnInit {
       rememberMe: [true], // Checkbox
 
     });
-
   }
-
-
-
-
   issucessfully() {
     const Toast = Swal.mixin({
       toast: true,
@@ -72,7 +67,11 @@ export class LoginComponent implements OnInit {
       title: "Invalid email or password"
     });
   }
+
     isloading = false;
+
+
+    
     onSubmit(){
       if (this.loginForm.valid) {
         this.isloading = true;

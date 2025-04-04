@@ -10,7 +10,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent implements OnInit {
-  constructor(private authService:AuthService){}
+
+  userId!:number;
+  constructor(private authService:AuthService){
+    this.userId = this.authService.getUserId() as number; 
+
+  }  
   logout(){
     this.authService.logout();
   }

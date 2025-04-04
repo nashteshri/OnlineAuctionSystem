@@ -4,19 +4,20 @@
         <!-- Table Header -->
         <ng-template #header>
             <td>
-                <a [routerLink]="'/live-bids'" class="live-bids-link">View Live Bids</a>
+                <a *ngIf="role=='admin'" [routerLink]="'/live-bids'" class="live-bids-link">View Live Bids</a>
             </td>
-            
+
             <tr>
-                <th>No</th>
+                <th>Auction Id</th>
                 <th>Title</th>
-                <th>Description</th>
+                <!-- <th>Description</th> -->
                 <th>Start Price</th>
                 <th>Start Time</th>
                 <th>End Time</th>
-                <th>Category</th>
+                <!-- <th>Category</th> -->
                 <th>Bid</th>
                 <th>Details</th>
+                <th *ngIf="role=='admin'">Delete</th>
             </tr>
         </ng-template>
 
@@ -25,11 +26,11 @@
             <tr>
                 <td style=" font-size: larger;">{{ auction.id }}</td>
                 <td style=" font-size: larger;">{{ auction.title }}</td>
-                <td style=" font-size: larger;">{{ auction.description }}</td>
+                <!-- <td style=" font-size: larger;">{{ auction.description }}</td> -->
                 <td style=" font-size: larger;">{{ auction.startPrice | currency: 'INR' }}</td>
                 <td style=" font-size: larger;">{{ auction.startTime | date: 'short' }}</td>
                 <td style=" font-size: larger;">{{ auction.endTime | date: 'short' }}</td>
-                <td style=" font-size: larger;">{{ auction.category }}</td>
+                <!-- <td style=" font-size: larger;">{{ auction.category }}</td> -->
 
                 <!-- Place Bid Button -->
                 <td style="font-size: larger;">
@@ -38,12 +39,24 @@
                         <app-bid-form [auctionId]="auction.id"></app-bid-form>
                     </div>
                 </td>
-                
-                
-                
+
 
                 <!-- Auction Details Button -->
-                <td style=" font-size: larger;"><p-button label="Details" /></td>
+                <td class="card flex justify-center">
+                    <p-button (click)="showDialog()" label="Details" (click)="toggleDetails(auction.id)" />
+                    <p-dialog header="Details" [modal]="true" [(visible)]="visible" [style]="{ width: '50rem' }"
+                        [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true"
+                        *ngIf="selectedAuctionDetails === auction.id">
+                        <p>
+                            <app-details-auction [auctionId]="auction.id" [description]="auction.description"
+                                [category]="auction.category"></app-details-auction>
+                        </p>
+                    </p-dialog>
+                </td>
+                <td style="font-size: larger;" *ngIf="role=='admin'">
+                    <p-button label="Delete" (click)="onDeleteAuction(auction.id)" />
+
+                </td>
             </tr>
         </ng-template>
     </p-table>

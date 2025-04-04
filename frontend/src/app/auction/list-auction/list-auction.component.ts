@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { AuctionService } from '../auction.service';
 import { PaginatorState } from 'primeng/paginator';
+import { AuthService } from '../../user/auth.service';
+import { response } from 'express';
+import { DialogModule } from 'primeng/dialog';
+
 
 interface Column {
   field: string;
   header: string;
-
 }
-
 @Component({
   selector: 'app-list-auction',
   standalone: false,
@@ -16,14 +18,33 @@ interface Column {
 })
 
 export class ListAuctionComponent {
-  visible: boolean = false;
+
+
   showDialog() {
     this.visible = true;
-  }
-  pagedAuctions!: any[];
-  selectedAuctionId!: number | null;
+}
 
-  constructor(private auctionservice: AuctionService) { }
+  visible: boolean = false;
+  pagedAuctions!: any[];
+  selectedAuctionId!: number |null;
+  selectedAuctionDetails!:number | null;
+  deleteAuctionId!:number;
+  role!:string;
+
+
+  //dialoge for bid button 
+  visibleBid: boolean = false;
+
+    showDialogBid() {
+        this.visible = true;
+    }
+  
+
+  
+  constructor(private auctionservice: AuctionService ,private authService: AuthService) { 
+    this.role = this.authService.getUserRole() as  any;
+  }
+
 
   auctions!: any[];
   cols!: Column[];
@@ -60,5 +81,22 @@ export class ListAuctionComponent {
   toggleBidForm(auctionId: number) {
       this.selectedAuctionId = this.selectedAuctionId === auctionId ? null : auctionId;
   }
+  toggleDetails(auctionId:number){
+    this.selectedAuctionDetails = this.selectedAuctionDetails === auctionId ? null : auctionId;
+    this.visible = true;
+  }
 
+  onDeleteAuction(auctionId:number){
+    this.auctionservice.deleteAuction(auctionId).subscribe({
+      next:(response)=>{
+        console.log("auction deleted Succesfully",response);
+        window.location.reload();
+      },
+      error :(err) => {
+        console.error('Error while deleting auction:', err);
+      }
+      
+
+    })
+  }
 }

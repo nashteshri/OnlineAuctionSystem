@@ -25,6 +25,7 @@ export class AuthService {
   saveToken(token:string):void{
     localStorage.setItem('token',token);
   }
+
   
   getToken():string|null{
     return localStorage.getItem('token');
@@ -64,6 +65,18 @@ export class AuthService {
       return decodedToken.id; // Ensure your JWT contains `userId`
     } catch (error) {
       console.error("Error decoding token:", error);
+      return null;
+    }
+  }
+  getUserRole():number | null{
+    const token = this.getToken();
+    if (!token) return null;
+    try{
+      const decodedToken:any =jwtDecode(token);
+      console.log("Decode Token",decodedToken);
+      return decodedToken.role;
+    }catch(error){
+      console.error("Error decoding token",error);
       return null;
     }
   }

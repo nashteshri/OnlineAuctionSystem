@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-details-auction',
@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './details-auction.component.css'
 })
 export class DetailsAuctionComponent {
-  
+  @Input() auctionId!: number;
+  @Input() description!:string;
+  @Input() category!:string;
 }
