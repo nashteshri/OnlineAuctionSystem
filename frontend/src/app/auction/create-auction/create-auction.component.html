@@ -4,7 +4,6 @@
 
     <form [formGroup]="auctionForm" (ngSubmit)="onSubmit()">
 
-        <!-- title -->
         <label for="title">Title:</label>
         <input formControlName="title" type="text" placeholder="enter auction title" class="center-placeholder">
         <div class="error" *ngIf="isInvalid('title')">Title is required (min 3 characters).</div>

@@ -8,12 +8,10 @@ const auctionservices = new AuctionService();
 export class AuctionController {
     static async createAuction(req: Request, res: Response) {
         try {
-            // const auctionDTO = isInstance(CreateDTO);
             const auctions = await auctionservices.createAuction(req.body);
             res.status(201).json(auctions);
         } catch (error) {
             res.status(400).json({ message: "error occured at creating" })
-
         }
     }
     static async getAllAuction(req:Request,res:Response){

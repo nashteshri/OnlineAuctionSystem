@@ -6,7 +6,7 @@ import { response } from 'express';
 import { DialogModule } from 'primeng/dialog';
 
 
-interface Column {
+interface Column {  //used for Primeng
   field: string;
   header: string;
 }
@@ -20,7 +20,7 @@ interface Column {
 export class ListAuctionComponent {
 
 
-  showDialog() {
+  showDialog() { 
     this.visible = true;
 }
 
@@ -46,7 +46,7 @@ export class ListAuctionComponent {
   }
 
 
-  auctions!: any[];
+  auctions: any[]=[];
   cols!: Column[];
 
   ngOnInit() {
@@ -90,13 +90,11 @@ export class ListAuctionComponent {
     this.auctionservice.deleteAuction(auctionId).subscribe({
       next:(response)=>{
         console.log("auction deleted Succesfully",response);
-        window.location.reload();
+        window.location.reload();//it will refresh the page after delete 
       },
       error :(err) => {
         console.error('Error while deleting auction:', err);
       }
-      
-
     })
   }
 }

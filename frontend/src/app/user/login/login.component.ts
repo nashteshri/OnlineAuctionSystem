@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]], // Email validation
       password: ['', [Validators.required, Validators.minLength(6)]], // Password validation
       rememberMe: [true], // Checkbox
-
     });
   }
   issucessfully() {
@@ -80,8 +79,9 @@ export class LoginComponent implements OnInit {
             this.isloading = false;
             localStorage.setItem('token', response.token);
             console.log(response.token)
-            this.router.navigate(['/list'])
             this.issucessfully();
+            this.router.navigate(['/list'])
+            
 
           },
           error: (err) => {

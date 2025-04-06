@@ -43,11 +43,6 @@ export class CreateAuctionComponent implements OnInit {
         }
 
       })
-      
-    //   alert('Auction Created Successfully!');
-    //   this.auctionForm.reset();
-    // } else {
-    //   alert('Please fill out the form correctly.');
      }
   }
 

@@ -64,6 +64,7 @@ export class AuctionService {
         amount: highestBid.amount,
       });
     }, 5000);
+    
   
       if (!highestBid) {
       io.emit("auctionEnded", { auctionId, message: "No valid bids placed" });
