@@ -11,12 +11,6 @@ import { log } from 'console';
   styleUrl: './bid-form.component.css'
 })
 export class BidFormComponent {
-  visible: boolean = false;
-
-    showDialog() {
-        this.visible = true;
-    }
-  
   @Input() auctionId!: number;  // Auction ID passed from ListAuctionComponent
   userId!: number; // Loggedin user ID
   bidAmount!: number;

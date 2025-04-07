@@ -68,7 +68,7 @@ export class AuthService {
       return null;
     }
   }
-  getUserRole():number | null{
+  getUserRole():string | null{
     const token = this.getToken();
     if (!token) return null;
     try{

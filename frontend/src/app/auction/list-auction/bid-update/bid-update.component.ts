@@ -14,7 +14,6 @@ export class BidUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("Listening for new bid updates...");
-    
     this.webSocketService.listen("newBid").subscribe((bid) => {
       console.log("New bid received:", bid);
       this.latestBid = [bid];

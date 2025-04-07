@@ -2,11 +2,12 @@
   <h3>Place Your Bid</h3>
   <p>Auction ID: {{ auctionId }}</p>
   <p>User ID: {{ userId }}</p>
-  <p>bid amount:{{bidAmount}}</p>
 
   <label for="bidAmount">Bid Amount:</label>
+  <br>
   <input type="number" [(ngModel)]="bidAmount" id="bidAmount" required />
-  
-  <button (click)="submitBid()">Submit Bid</button>
+  <br>
+  <!-- <button (click)="submitBid()">Submit Bid</button> -->
+  <p-button label="Submit Bid" (click)="submitBid()"/>
 </div>
 

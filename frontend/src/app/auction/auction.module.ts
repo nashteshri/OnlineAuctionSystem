@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SearchComponent } from './search/search.component';
+import { SearchComponent } from './list-auction/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { ListAuctionComponent } from './list-auction/list-auction.component';
@@ -14,6 +14,7 @@ import { BidFormComponent } from './list-auction/bid-form/bid-form.component';
 import { DialogModule } from 'primeng/dialog';
 import { BidUpdateComponent } from './list-auction/bid-update/bid-update.component';
 
+
 @NgModule({
   declarations: [
   //   SearchComponent
@@ -21,7 +22,8 @@ import { BidUpdateComponent } from './list-auction/bid-update/bid-update.compone
   DetailsAuctionComponent,
   CreateAuctionComponent,
   BidFormComponent,
-  BidUpdateComponent
+  BidUpdateComponent,
+  SearchComponent
   
   
   ],

@@ -5,17 +5,18 @@ import { DetailsAuctionComponent } from './list-auction/details-auction/details-
 import { CreateAuctionComponent } from './create-auction/create-auction.component';
 import { BidUpdateComponent } from './list-auction/bid-update/bid-update.component';
 import { BidFormComponent } from './list-auction/bid-form/bid-form.component';
+import { AuctionGuard } from './auction.guard';
 
 
 
 const routes: Routes = [
   {path:'',redirectTo:'/list',pathMatch:'full'},
   {path:'list',component:ListAuctionComponent },
-  {path:'create',component:CreateAuctionComponent},
+  // {path:'create',component:CreateAuctionComponent,canActivate:[AuctionGuard]},
   {path:'details',component:DetailsAuctionComponent},
   { path: 'BidUpdate', component: BidUpdateComponent },
-  { path: 'bid/:auctionId', component: BidFormComponent }, // ✅ Bid form with auctionId
-  { path: 'live-bids', component: BidUpdateComponent }, // ✅ Real-time bid updates
+  { path: 'bid/:auctionId', component: BidFormComponent },
+  { path: 'live-bids', component: BidUpdateComponent ,canActivate:[AuctionGuard]},
 ];
 
 @NgModule({

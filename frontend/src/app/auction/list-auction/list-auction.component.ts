@@ -35,10 +35,7 @@ export class ListAuctionComponent {
   //dialoge for bid button 
   visibleBid: boolean = false;
 
-    showDialogBid() {
-        this.visible = true;
-    }
-  
+   
 
   
   constructor(private auctionservice: AuctionService ,private authService: AuthService) { 
@@ -50,6 +47,7 @@ export class ListAuctionComponent {
   cols!: Column[];
 
   ngOnInit() {
+    
     this.auctionservice.getAllAuctions().subscribe((data) => {
       this.auctions = data;
       this.updatePagedAuctions();
@@ -78,9 +76,15 @@ export class ListAuctionComponent {
     this.pagedAuctions = this.auctions.slice(start, end);
   }
 
-  toggleBidForm(auctionId: number) {
-      this.selectedAuctionId = this.selectedAuctionId === auctionId ? null : auctionId;
-  }
+  // toggleBidForm(auctionId: number) {
+  //     this.selectedAuctionId = this.selectedAuctionId === auctionId ? null : auctionId;
+  // }replacing 
+  showDialogBid(auctionId: number) {
+    this.selectedAuctionId = auctionId;
+    this.visibleBid = true;
+    }
+
+
   toggleDetails(auctionId:number){
     this.selectedAuctionDetails = this.selectedAuctionDetails === auctionId ? null : auctionId;
     this.visible = true;

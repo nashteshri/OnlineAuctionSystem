@@ -1,4 +1,6 @@
+<!-- <app-search></app-search> -->
 <div class="card">
+
     <p-table [value]="pagedAuctions" [tableStyle]="{ 'min-width': '50rem' }">
 
         <!-- Table Header -->
@@ -33,12 +35,20 @@
                 <!-- <td style=" font-size: larger;">{{ auction.category }}</td> -->
 
                 <!-- Place Bid Button -->
-                <td style="font-size: larger;">
+                <!-- <td style="font-size: larger;">
                     <p-button label="Place Bid" class="place-bid-button" (click)="toggleBidForm(auction.id)" />
                     <div *ngIf="selectedAuctionId === auction.id">
                         <app-bid-form [auctionId]="auction.id"></app-bid-form>
                     </div>
+                </td> -->
+                <td style="font-size: larger;">
+                    <p-button label="Place Bid" class="place-bid-button" (click)="showDialogBid(auction.id)" />
                 </td>
+                
+                <p-dialog header="Place Your Bid" [(visible)]="visibleBid" [modal]="true" [style]="{ width: '25rem' }">
+                    <app-bid-form *ngIf="selectedAuctionId" [auctionId]="selectedAuctionId"></app-bid-form>
+                </p-dialog>
+                
 
 
                 <!-- Auction Details Button -->
