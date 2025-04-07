@@ -2,13 +2,18 @@
 <div class="register-container">
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <h2>Register as a Bidder</h2>
-
+        <div *ngIf="registerForm.get('name')?.errors?.['multipleSpaces'] && registerForm.get('name')?.touched">
+            <small style="color:red">Multiple spaces are not allowed</small>
+        </div>
         <!-- Name -->
         <div class="form-group">
             <input type="text" formControlName="name" placeholder="Name">
             <span *ngIf="registerForm.controls['name'].invalid && registerForm.controls['name'].touched">
                 Name is required (Min 3 characters)
             </span>
+        </div>
+        <div *ngIf="registerForm.get('email')?.errors?.['multipleSpaces'] && registerForm.get('email')?.touched">
+            <small style="color:red">Multiple spaces are not allowed</small>
         </div>
 
         <!-- Email -->
@@ -42,6 +47,11 @@
             <span *ngIf="registerForm.controls['gender'].invalid && registerForm.controls['gender'].touched">
                 Please select a gender
             </span>
+        </div>
+
+
+        <div *ngIf="registerForm.get('address')?.errors?.['multipleSpaces'] && registerForm.get('address')?.touched">
+            <small style="color:red">Multiple spaces are not allowed</small>
         </div>
 
         <!-- Address -->

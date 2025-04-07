@@ -1,9 +1,11 @@
 import express from "express";
 import { AuctionController } from "../controllers/AuctionController";
 import { authMiddleware } from "../middleware/authMiddleware";
+import { validateDTO } from "../middleware/validationMiddleware";
+import { CreateDTO } from "../dtos/AuctionDTO";
 const auctionrouter = express.Router();
 
-auctionrouter.post("/create",authMiddleware,AuctionController.createAuction);
+auctionrouter.post("/create",validateDTO(CreateDTO),authMiddleware,AuctionController.createAuction);
 auctionrouter.get("/",AuctionController.getAllAuction);
 // auctionrouter.get("/",authMiddleware,AuctionController.getAllAuction);
 auctionrouter.get("/:id",AuctionController.getAuctionById);

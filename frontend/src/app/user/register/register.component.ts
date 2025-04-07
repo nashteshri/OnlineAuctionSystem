@@ -16,13 +16,13 @@ export class RegisterComponent {
   //form validation
   ngOnInit() {
     this.registerForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      mobilenumber: ['', [Validators.required, Validators.pattern(/^\+91\d{10}$/)]], // Indian format example
+      name: ['', [Validators.required, Validators.minLength(3), this.noMultipleSpaces]],
+      email: ['', [Validators.required, Validators.email, this.noMultipleSpaces]],
+      password: ['', [Validators.required, Validators.minLength(6), this.noMultipleSpaces]],
+      mobilenumber: ['', [Validators.required, Validators.pattern(/^\+91\d{10}$/), this.noMultipleSpaces]],
       gender: ['', Validators.required],
-      address: ['', Validators.required],
-      city: ['', Validators.required],
+      address: ['', [Validators.required, this.noMultipleSpaces]],
+      city: ['', [Validators.required, this.noMultipleSpaces]],
       country: ['', Validators.required]
     });
   }
@@ -45,6 +45,13 @@ export class RegisterComponent {
         }
       })
     }
+  }
+  //handling multiple spaces
+  noMultipleSpaces(control: any) {
+    if (control.value && /\s{2,}/.test(control.value)) {
+      return { multipleSpaces: true }; // Error Object
+    }
+    return null; // No error
   }
 
 }

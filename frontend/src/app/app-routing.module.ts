@@ -11,18 +11,36 @@ import { ContactComponent } from './user/contact/contact.component';
 import { BidUpdateComponent } from './auction/list-auction/bid-update/bid-update.component';
 import { AuctionGuard } from './auction/auction.guard';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { ErrorLayoutComponent } from './layout/error-layout/error-layout.component';
+import { AppLayoutComponent } from './layout/app-layout/app-layout.component';
+import { AuctionRoutingRoutingModule } from './auction/auction-routing-routing.module';
+import { AuctionRoutes } from './auction/auction-routing-routing.module';
 
 const routes: Routes = [
-  {path:"login",component:LoginComponent},
-  {path:"register",component:RegisterComponent},
-  {path:"admin",component:AdminComponent},
-  // {path:"search",component:SearchComponent},
-  {path:"dashboard",component:ProfileComponent,canActivate:[AuthGuard]},
-  {path:"create",component:CreateAuctionComponent,canActivate:[AuctionGuard]},
-  {path:'about',component:AboutUsComponent},
-  { path: 'contact', component: ContactComponent },
-  { path: 'BidUpdate', component: BidUpdateComponent },
-  { path: 'error-page', component: ErrorPageComponent }
+  {
+    path: '',
+    component: AppLayoutComponent,
+    children: [
+      
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'admin', component: AdminComponent },
+      { path: 'dashboard', component: ProfileComponent, canActivate: [AuthGuard] },
+      { path: 'create', component: CreateAuctionComponent, canActivate: [AuctionGuard] },
+      { path: 'about', component: AboutUsComponent },
+      { path: 'contact', component: ContactComponent },
+      { path: 'BidUpdate', component: BidUpdateComponent },
+      ...AuctionRoutes
+      
+    ]
+  },
+  {
+    path: '',
+    component: ErrorLayoutComponent,
+    children: [
+      { path: 'error-page', component: ErrorPageComponent }
+    ]
+  }
 ];
 
 @NgModule({

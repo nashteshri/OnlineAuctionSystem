@@ -12,7 +12,6 @@ import { AuctionGuard } from './auction.guard';
 const routes: Routes = [
   {path:'',redirectTo:'/list',pathMatch:'full'},
   {path:'list',component:ListAuctionComponent },
-  // {path:'create',component:CreateAuctionComponent,canActivate:[AuctionGuard]},
   {path:'details',component:DetailsAuctionComponent},
   { path: 'BidUpdate', component: BidUpdateComponent },
   { path: 'bid/:auctionId', component: BidFormComponent },
@@ -24,3 +23,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AuctionRoutingRoutingModule { }
+export const AuctionRoutes: Routes = routes;

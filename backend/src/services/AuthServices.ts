@@ -20,8 +20,8 @@ export class AuthServices{
     }
     async login (loginData:LoginDTO){
         
-        const user = await UserRepositories.findOne({where:{email:loginData.email}});
-        if (!user) throw Error("Invalid Password or Email Please check once");
+        const user:any = await UserRepositories.findOne({where:{email:loginData.email}});
+        //if (!user) throw Error("Invalid Password or Email Please check once");
         const isValidPassword= await bcrypt.compare(loginData.password, user.password);
         if(!isValidPassword) throw Error("Invalid Password or Email Please check once");
         const token =  jwt.sign({id:user.id,email:user.email,role:user.role},process.env.JWT_SECRET!,{expiresIn: '1h'});
