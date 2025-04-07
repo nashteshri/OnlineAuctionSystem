@@ -2,11 +2,11 @@ import { Request, Response } from "express";
 import { AuctionService } from "../services/AuctionService";
 import { isInstance } from "class-validator";
 import { CreateDTO } from "../dtos/AuctionDTO";
-import { log } from "console";
 
 const auctionservices = new AuctionService();
 export class AuctionController {
     static async createAuction(req: Request, res: Response) {
+        
         try {
             const auctions = await auctionservices.createAuction(req.body);
             res.status(201).json(auctions);

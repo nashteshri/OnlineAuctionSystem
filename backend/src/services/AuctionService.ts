@@ -8,6 +8,7 @@ import { AuctionRepositories } from "../Repositories/AuctionRepositories";
 export class AuctionService {
   auctionRepository = AppDataSource.getRepository(AuctionEntity);
   async createAuction(auctionData: CreateDTO) {
+    
     const auction = AuctionRepositories.create(auctionData);
     await AuctionRepositories.save(auction);
     return { message: "auction created sucessfully" };

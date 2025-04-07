@@ -14,6 +14,7 @@ export class ProfileController {
     }
     static async changePassword(req:Request,res:Response){
         try{
+            // throw new Error ("This is error profile")
             const userId = (req as any ).user.id;
             const passwordData:changePasswordDTO=req.body;
             const result = await ProfileService.changepassword(userId,passwordData);
