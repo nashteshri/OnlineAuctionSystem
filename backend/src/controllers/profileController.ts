@@ -12,6 +12,17 @@ export class ProfileController {
             res.status(400).json({message:(error as Error["message"])});
         }
     }
+
+    static async getAllProfiles(req: Request, res: Response): Promise<void> {
+        try {
+            const users = await ProfileService.getAllProfiles();
+            res.status(200).json(users); // Send the list of all user profiles as the response
+        } catch (error: any) {
+            res.status(400).json({ message: error.message }); // Handle errors
+        }
+    }
+
+
     static async changePassword(req:Request,res:Response){
         try{
             //throw new Error ("This is error profile");
@@ -23,4 +34,6 @@ export class ProfileController {
             res.status(400).json({message:(error as Error ).message});
         }
     }
+
+
 }

@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
     this.authService.logout();
   }
   profile: any;
+  Allprofile:any;
   biddingHistory: any[] = [];
   oldPassword: string = '';
   newPassword: string = '';
@@ -25,6 +26,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.loadProfile();
     this.loadBiddingHistory();
+    this.loadAllProfile()
   }
 
   loadProfile() {
@@ -32,7 +34,26 @@ export class ProfileComponent implements OnInit {
       this.profile = data;
     });
   }
+
+  loadAllProfile(){
+    console.log("this is all profile")
+    this.authService.getAllProfile().subscribe({
+      
+      next:(data)=>{
+        
+        if(data){
+          this.Allprofile=data;
+        }
+        console.log("all profile",this.Allprofile);
+      },
+      error:(err)=>{
+        console.error('error in all profile',err)
+      }
+    })
+
+  }
   loadBiddingHistory() {
+    console.log("loadBidding History")
     this.authService.getBiddingHistory().subscribe({
       next: (data) => {
         if (data) {

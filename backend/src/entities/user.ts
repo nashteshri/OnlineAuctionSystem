@@ -38,4 +38,7 @@ export class user{
 
     @OneToMany(()=>Bid,(bid) =>bid.bidder)
     bids:Bid[];
+    static id: any;
+    static email: any;
+
 }

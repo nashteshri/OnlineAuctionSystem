@@ -7,7 +7,8 @@ import profilerouter from "./routes/profile.routes";
 import bidrouter from "./routes/Bid.routes";
 import { Server } from "socket.io";
 import {createServer} from "http";
-import { globalErrorHandler } from "./middleware/error.middleware";
+import { errorMiddleware } from "./middleware/error.middleware";
+// import { globalErrorHandler } from "./middleware/error.middleware";
 
 
 const app = express();//handing request
@@ -25,7 +26,7 @@ io.on("connection",(socket)=>{
         console.log("User disconnected:",socket.id);
     });
 });
-app.use(globalErrorHandler);
+app.use(errorMiddleware);
 const PORT = 3000;
 // const PORT = 5000;
 app.use(express.json());                                                       

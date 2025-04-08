@@ -10,6 +10,36 @@
     <input type="password" [(ngModel)]="newPassword" placeholder="New Password" />
     <button (click)="changePassword()">Update Password</button>
 
+
+
+    <h3>All Profiles</h3>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Mobile Number</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Country</th>
+      </tr>
+      <tr *ngFor="let user of Allprofile">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>{{ user.mobilenumber }}</td>
+        <td>{{ user.gender }}</td>
+        <td>{{ user.address }}</td>
+        <td>{{ user.city }}</td>
+        <td>{{ user.country }}</td>
+      </tr>
+    </table>
+    
+    
+
     <h3>Bidding History</h3>
     <table>
       <tr>

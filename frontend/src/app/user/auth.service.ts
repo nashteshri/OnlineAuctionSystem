@@ -46,6 +46,10 @@ export class AuthService {
     return this.http.get(`${this.apiurl2}/`);
   }
 
+  getAllProfile(): Observable<any> {
+    return this.http.get(`${this.apiurl2}/All`);
+  }
+
   getBiddingHistory(): Observable<any> {
     return this.http.get(`${this.apiurl3}/`);
   }
@@ -86,5 +90,7 @@ export class AuthService {
       return null;
     }
   }
+
+  
 }
 
