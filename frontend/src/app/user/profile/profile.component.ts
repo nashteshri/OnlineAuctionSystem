@@ -10,8 +10,10 @@ import { AuthService } from '../auth.service';
 export class ProfileComponent implements OnInit {
 
   userId!:number;
+  role: any;
   constructor(private authService:AuthService){
     this.userId = this.authService.getUserId() as number; 
+    this.role = this.authService.getUserRole() as  any;
 
   }  
   logout(){

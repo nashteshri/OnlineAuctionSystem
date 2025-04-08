@@ -10,7 +10,7 @@ import { AuthGuard } from '../user/auth.guard';
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'/list',pathMatch:'full'},
+  {path:'',redirectTo:'list',pathMatch:'full'},
   {path:'list',component:ListAuctionComponent,canActivate: [AuthGuard] },
   {path:'details',component:DetailsAuctionComponent},
   { path: 'BidUpdate', component: BidUpdateComponent },

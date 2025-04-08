@@ -21,7 +21,7 @@ const routes: Routes = [
     path: '',
     component: AppLayoutComponent,
     children: [
-      //{path:'',redirectTo:'/login',pathMatch:'full'},
+      // {path:'',redirectTo:'/auction',pathMatch:'full'},
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'admin', component: AdminComponent },
@@ -31,6 +31,8 @@ const routes: Routes = [
       { path: 'contact', component: ContactComponent },
       { path: 'BidUpdate', component: BidUpdateComponent },
       ...AuctionRoutes
+
+      // {path:"auction",loadChildren:()=>import('./auction/auction.module').then((m)=>m.AuctionModule)}
       
     ]
   },

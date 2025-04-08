@@ -1,17 +1,18 @@
 <div class="container">
-    <h2>User Profile</h2>
-    <p><strong>UserId:</strong> {{ userId }}</p>
-    <p><strong>Name:</strong> {{ profile?.name }}</p>
-    <p><strong>Email:</strong> {{ profile?.email }}</p>
-    <p-button label="Log out" (click)="logout()" />
-    
-    <h3>Change Password</h3>
-    <input type="password" [(ngModel)]="oldPassword" placeholder="Old Password" />
-    <input type="password" [(ngModel)]="newPassword" placeholder="New Password" />
-    <button (click)="changePassword()">Update Password</button>
+  <h2>User Profile</h2>
+  <p><strong>UserId:</strong> {{ userId }}</p>
+  <p><strong>Name:</strong> {{ profile?.name }}</p>
+  <p><strong>Email:</strong> {{ profile?.email }}</p>
+  <p-button label="Log out" (click)="logout()" />
+
+  <h3>Change Password</h3>
+  <input type="password" [(ngModel)]="oldPassword" placeholder="Old Password" />
+  <input type="password" [(ngModel)]="newPassword" placeholder="New Password" />
+  <button (click)="changePassword()">Update Password</button>
 
 
 
+  <div  *ngIf="role=='admin'">
     <h3>All Profiles</h3>
     <table>
       <tr>
@@ -37,22 +38,23 @@
         <td>{{ user.country }}</td>
       </tr>
     </table>
-    
-    
+  </div>
 
-    <h3>Bidding History</h3>
-    <table>
-      <tr>
-        <th>Auction</th>
-        <th>Category</th>
-        <th>Amount Your Bid</th>
-        <th>Bid Time</th>
-      </tr>
-      <tr *ngFor="let bid of biddingHistory">
-        <td>{{ bid.auction.title }}</td>
-        <td>{{ bid.auction.category }}</td>
-        <td>{{ bid.amount }}</td>
-        <td>{{ bid.bidTime | date:'short' }}</td>
-      </tr>
-    </table>
+
+
+  <h3>Bidding History</h3>
+  <table>
+    <tr>
+      <th>Auction</th>
+      <th>Category</th>
+      <th>Amount Your Bid</th>
+      <th>Bid Time</th>
+    </tr>
+    <tr *ngFor="let bid of biddingHistory">
+      <td>{{ bid.auction.title }}</td>
+      <td>{{ bid.auction.category }}</td>
+      <td>{{ bid.amount }}</td>
+      <td>{{ bid.bidTime | date:'short' }}</td>
+    </tr>
+  </table>
 </div>
