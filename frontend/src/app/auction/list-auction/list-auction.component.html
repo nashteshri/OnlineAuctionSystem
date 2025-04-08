@@ -53,7 +53,7 @@
 
                 <!-- Auction Details Button -->
                 <td class="card flex justify-center">
-                    <p-button (click)="showDialog()" label="Details" (click)="toggleDetails(auction.id)" />
+                    <p-button (click)="showDialog()" severity="info" label="Details" (click)="toggleDetails(auction.id)" />
                     <p-dialog header="Details" [modal]="true" [(visible)]="visible" [style]="{ width: '50rem' }"
                         [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true"
                         *ngIf="selectedAuctionDetails === auction.id">
@@ -64,7 +64,7 @@
                     </p-dialog>
                 </td>
                 <td style="font-size: larger;" *ngIf="role=='admin'">
-                    <p-button label="Delete" (click)="onDeleteAuction(auction.id)" />
+                    <p-button label="Delete" severity="danger" (click)="onDeleteAuction(auction.id)" />
 
                 </td>
             </tr>

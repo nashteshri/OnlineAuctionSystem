@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
@@ -8,7 +8,7 @@ import { jwtDecode } from 'jwt-decode';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiurl ='http://localhost:5000/api';
+  private apiurl ='http://localhost:3000/api';
 
   constructor(private http:HttpClient,private router:Router) {}
 
@@ -40,8 +40,8 @@ export class AuthService {
   }
 
   //Creating For Profile 
-  private apiurl2 ='http://localhost:5000/api/profile';
-  private apiurl3='http://localhost:5000/api/bid'
+  private apiurl2 ='http://localhost:3000/api/profile';
+  private apiurl3='http://localhost:3000/api/bid'
   getProfile(): Observable<any> {
     return this.http.get(`${this.apiurl2}/`);
   }

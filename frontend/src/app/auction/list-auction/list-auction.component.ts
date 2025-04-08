@@ -75,10 +75,6 @@ export class ListAuctionComponent {
     const end = this.first + this.rows;
     this.pagedAuctions = this.auctions.slice(start, end);
   }
-
-  // toggleBidForm(auctionId: number) {
-  //     this.selectedAuctionId = this.selectedAuctionId === auctionId ? null : auctionId;
-  // }replacing 
   showDialogBid(auctionId: number) {
     this.selectedAuctionId = auctionId;
     this.visibleBid = true;
