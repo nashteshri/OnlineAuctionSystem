@@ -55,6 +55,12 @@ export class AuthService {
     return this.http.patch(`${this.apiurl2}/change`, { oldPassword, newPassword });
   }
 
+  getlatestBid(auctionId:number): Observable<any>{
+    return this.http.get(`${this.apiurl3}/latest/${auctionId}`)
+
+
+  }
+
   getUserId(): number | null {
     const token = this.getToken();
     if (!token) return null;

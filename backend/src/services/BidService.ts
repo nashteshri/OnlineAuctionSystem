@@ -51,4 +51,14 @@ export class BidService{
         return await BidRepositories.findBidsByUser(userId); //using query builder from repository
         
     }
+    async getLatestBid(auctionId: number) {
+        const latestBid = await BidRepositories
+            .createQueryBuilder('bid')
+            .where("bid.auctionId = :auctionId", { auctionId })
+            .orderBy("bid.amount", "DESC")
+            .getOne(); // Get the single highest bid
+        return latestBid;
+    }
+
+    
 }
