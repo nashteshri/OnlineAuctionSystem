@@ -13,11 +13,8 @@ export class Bid {
    @ManyToOne(() => user, (user) => user.bids)
    bidder: user;
 
-   //  @ManyToOne(()=>AuctionEntity,(auction)=>auction.bids)
-   //  auction:AuctionEntity;
    @ManyToOne(() => AuctionEntity, (auction) => auction.bids, { onDelete: "CASCADE" })
    auction: AuctionEntity;
-
 
 
    @CreateDateColumn()

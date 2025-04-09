@@ -58,7 +58,5 @@ export class BidService{
             .orderBy("bid.amount", "DESC")
             .getOne(); // Get the single highest bid
         return latestBid;
-    }
-
-    
+    }    
 }

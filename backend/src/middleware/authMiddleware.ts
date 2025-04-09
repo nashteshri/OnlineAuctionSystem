@@ -5,9 +5,9 @@ import { AuthRequest } from "../types/user.type";
 
 export const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
     
-    const token = req.header("Authorization")!;
-    console.log(token);
-    console.log(req);
+    const token = req.header("Authorization")!;//geting the jwt token from authorization header
+    // console.log(token);
+    // console.log(req);
     
     
     if (!token) {
@@ -39,7 +39,7 @@ export const authMiddleware2 = (req: AuthRequest, res: Response, next: NextFunct
     }
     try {
         const verified = Jwt.verify(token, process.env.JWT_SECRET as string);
-        // const role = "admin";
+
         console.log(verified);
         req.user = verified;
         console.log(user);

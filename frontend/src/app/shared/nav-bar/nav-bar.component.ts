@@ -23,6 +23,11 @@ export class NavBarComponent {
     this.mainMenulink=['/about','/contact'];
     this.role=authService.getUserRole()
 
+    // this.authService.userSubject$.subscribe((data)=>{
+    //   console.log(data);
+      
+    //   this.role = data
+    // })
     
   }
   logout(){

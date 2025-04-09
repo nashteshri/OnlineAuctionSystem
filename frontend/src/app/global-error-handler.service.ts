@@ -1,25 +1,54 @@
-import { ErrorHandler, Injectable, Injector } from '@angular/core';
-import { Router } from '@angular/router';
+import { ErrorHandler, Injectable } from "@angular/core";
+import Swal from "sweetalert2";
+import { AuthService } from "./user/auth.service";
 
+ 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
+ 
 export class GlobalErrorHandlerService implements ErrorHandler {
-
-  constructor(private injector: Injector) {}
-
-  handleError(error: any): void {
-    const router = this.injector.get(Router); // Get Router instance
-
-    console.error('Global Error Handler:', error);
-
-    // Redirect to a custom error page
-    router.navigate(['/error-page']);
-
-    // Optionally log error to an external service
-    // sendErrorToServer(error);
-
-    // Rethrow error if needed (optional)
-    throw error;
-  }
+ 
+ 
+ 
+    constructor(private authService: AuthService) {
+       
+    }
+ 
+    handleError(error: any): void {
+ 
+   
+       
+       
+ 
+        if (error.status !== undefined) {
+            console.log(error.status);
+            console.log(error);
+            
+           
+            if (error.status !== 500 && error.status !== 0) {
+                error.message = error.error.message
+            } else {
+                error.message = "Try again later !"
+            }
+ 
+            Swal.fire({
+                icon: "error",
+               
+                text: error.message
+            }).then(
+ 
+                (result) => {
+ 
+ 
+                    if (error.status === 0) {
+                        this.authService.logout()
+                    }
+ 
+ 
+                }
+            )
+        }
+    }
 }
+ 

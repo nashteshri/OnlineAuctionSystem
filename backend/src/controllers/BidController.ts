@@ -10,10 +10,10 @@ export class BidController {
             const userId = (req as any).user.id;//getting user id from auth middleware
             const bidDate: BidDTO = req.body;
 
-            const errors = await validate(bidDate);
-            if (errors.length > 0) {
-                res.status(400).json({ message: "validtion failed", errors });
-            }
+            // const errors = await validate(bidDate);
+            // if (errors.length > 0) {
+            //     res.status(400).json({ message: "validtion failed", errors });
+            // }
             const result = await bidservice.placeBid(userId, bidDate);
             res.status(201).json(result);
 

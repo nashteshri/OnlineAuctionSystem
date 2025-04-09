@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
@@ -9,6 +9,16 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class AuthService {
   private apiurl ='http://localhost:3000/api';
+
+  user = {
+  
+    role:'',
+  
+
+  }
+
+  userSubject = new BehaviorSubject(this.user)
+  userSubject$ = this.userSubject.asObservable()
 
   constructor(private http:HttpClient,private router:Router) {}
 
@@ -89,6 +99,10 @@ export class AuthService {
       console.error("Error decoding token",error);
       return null;
     }
+  }
+
+  sendData(data:any){
+    this.userSubject.next(data)
   }
 
   

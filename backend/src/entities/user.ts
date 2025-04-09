@@ -33,12 +33,7 @@ export class user{
     @Column({length:50})
     country:string;
 
-    @OneToMany (()=>AuctionEntity,(AuctionEntity)=>AuctionEntity.seller)
-    auctions:AuctionEntity[]; //each user can have multiple auctions.
-
     @OneToMany(()=>Bid,(bid) =>bid.bidder)
     bids:Bid[];
-    static id: any;
-    static email: any;
 
 }

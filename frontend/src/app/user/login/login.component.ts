@@ -79,15 +79,22 @@ export class LoginComponent implements OnInit {
             this.isloading = false;
             localStorage.setItem('token', response.token);
             console.log(response.token)
+
             this.issucessfully();
-            this.router.navigate(['/list'])
+
+            const data = this.authService.getUserRole()
+            console.log(data);
+            
+            this.authService.sendData(data)
+            this.router.navigate(['auction/list'])
             
 
           },
           error: (err) => {
             this.isloading = false;
-            this.loginError = 'Invalid email or password';
-            this.unsucessfully();
+            // this.loginError = 'Invalid email or password';
+            // this.unsucessfully();
+            throw err
           }
         });
       } else {

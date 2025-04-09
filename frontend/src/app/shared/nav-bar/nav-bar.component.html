@@ -8,7 +8,7 @@
                 <a class="nav-link" routerLink="/dashboard">Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" *ngIf="role=='admin'" routerLink="/create">Create Bid</a>
+                <a class="nav-link" *ngIf=" role === 'admin' " routerLink="/create">Create Bid</a>
             </li>
             <li class="nav-item" *ngFor="let menu of mainMenuItem; let i = index">
                 

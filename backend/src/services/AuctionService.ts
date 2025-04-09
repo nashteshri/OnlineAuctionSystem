@@ -70,7 +70,7 @@ export class AuctionService {
       if (!highestBid) {
       io.emit("auctionEnded", { auctionId, message: "No valid bids placed" });
       return { message: "Auction ended without a valid winning bid" };
-    }
+    }//
 
     io.emit("auctionEnded", {
       auctionId,

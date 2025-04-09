@@ -9,7 +9,7 @@ export class CreateDTO{
     @IsNotEmpty({message:"description is required"})
     description:string;
     @IsNumber()
-    @Min(1,{message:"Startuing price must be at least 100"})
+    @Min(100,{message:"Startuing price must be at least 100"})
     starPrice:number;
     @IsDate()
     @IsNotEmpty({message:"startTime is required"})

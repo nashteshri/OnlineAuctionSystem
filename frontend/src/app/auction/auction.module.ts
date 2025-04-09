@@ -35,7 +35,8 @@ import { BidUpdateComponent } from './list-auction/bid-update/bid-update.compone
     TableModule,
     PaginatorModule,
     ButtonModule,
-    DialogModule
+    DialogModule,
+    AuctionRoutingRoutingModule
     
   ],
   exports:[

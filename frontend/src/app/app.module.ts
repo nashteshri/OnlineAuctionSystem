@@ -18,16 +18,13 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { GlobalErrorHandlerService } from './global-error-handler.service';
 import { HttpErrorInterceptor } from './http-error.interceptor';
 import { ErrorPageComponent } from './error-page/error-page.component';
-import { AppLayoutComponent } from './layout/app-layout/app-layout.component';
-import { ErrorLayoutComponent } from './layout/error-layout/error-layout.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     NavBarComponent,
-    ErrorPageComponent,
-    AppLayoutComponent,
-    ErrorLayoutComponent
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +34,8 @@ import { ErrorLayoutComponent } from './layout/error-layout/error-layout.compone
     ReactiveFormsModule,
     HttpClientModule,
     ButtonModule,
-    AuctionModule
+    AuctionModule,
+    
     ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
